@@ -1,0 +1,6 @@
+images need to be
+- .jpg
+- 1:1 aspect ratio
+- 400x400
+- under /assets/photos/ path
+- scaled down to 200x200 in-page
