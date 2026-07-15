@@ -5,7 +5,7 @@
 /* Custom font (VCR OSD Mono) taken from the fonts folder */
 @font-face {
     font-family: "VCR OSD Mono";
-    src: url(computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.ttf);
+    src: url(/assets/fonts/VCR_OSD_MONO_1.001.ttf);
     font-weight: normal;
 }
    
