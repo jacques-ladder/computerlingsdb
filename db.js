@@ -129,5 +129,6 @@ function initialize() { // we're calling this function the moment the html body 
   addEntry("stardust", "stardust.jpg", "Stardust", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "⭐️ example");
   addEntry("lovedeath", "lovedeath.jpg", "Lovedeath", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "💜> example");
   addEntry("flora", "flora.jpg", "Flora", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "🌻> example");
+  addEntry("cecile", "cecile.jpg", "Cécile", "Cécilemin", "@jacques_ladder", "https://x.com/jacques_ladder", null);
   table();
 }
