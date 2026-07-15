@@ -74,7 +74,12 @@ function table() {
       
       var CELL    = document.createElement("td");
       var ELEMENT;
-      var data    = registry[entry][parameter];
+      var data;
+      if (registry[entry][parameter] == "" || registry[entry][parameter] === null) {
+        data = "N/A";
+      } else {
+        data = registry[entry][parameter];
+      }
       switch (parameter) {
         case "image":
           CELL.classList.add("photo");
