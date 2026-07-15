@@ -21,7 +21,7 @@ const template = {
 let registry  = new Object();
 registry["lemon"] = { // lemon's entry is hardcoded into the dictionary as a fall-back.
     "id"      : "lemon",
-    "image"   : ".../lemon.jpg",
+    "image"   : "lemon.jpg",
     "name"    : "Lemon",
     "owner"   : "PauIndeed",
     "account" : ["@LEMONSYSEXE", "https://x.com/lemonsysexe"],
