@@ -79,7 +79,7 @@ function table() {
         case "image":
           CELL.classList.add("photo");
           ELEMENT           = document.createElement("img");
-          ELEMENT.src       = "computerlingsdb/assets/photos/" + data;
+          ELEMENT.src       = "/computerlingsdb/assets/photos/" + data;
           ELEMENT.classList.add("photo");
           break;
         case "name":
