@@ -1,3 +1,5 @@
+// ***IMPORTANT***: specify root folder as /computerlingsdb/
+
 const db        = document.getElementById("db");
 const BODY      = document.getElementById("dbBODY");
 const HEADER    = document.getElementById("dbHEADER");
