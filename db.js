@@ -5,8 +5,8 @@
 // when adding a new parameter, remember to:
 // - list it in FIELDS
 // - update TEMPLATE
-// - make argument in ADDENTRY()
-// - assign it in ADDENTRY()
+// - make argument in newEntry()
+// - assign it in newEntry()
 // - create it's case in the switch statement under TABLE()
 // - update all previous entires with appropriate data for field
 // - add it's class in style.css
@@ -35,39 +35,25 @@ let template = {
     "id"      : null
 };
 
-function initializeTemplate() {
+let registry  = new Object();
+
+function buildTemplate() {
   for (parameter of fields) {
     template[parameter] = null
   }
+  return template;
 }
-initializeTemplate()
-
-let registry  = new Object();
-registry["lemon"] = { // lemon's entry is hardcoded into the dictionary as a fall-back.
-    "id"      : "lemon",
-    "image"   : "lemon.jpg",
-    "name"    : "Lemon",
-    "owner"   : "PauIndeed",
-    "account" : ["@LEMONSYSEXE", "https://x.com/lemonsysexe"],
-    "typing"  : "🟡> example",
-    "status"  : "Active"
-  };
-
-function addEntry(id, image, name, owner, accountHandle, accountLink, typing, status) {
-  /*
-  cecilemin note:
-  this is a temporary way to add entries to the computerlings database dynamically. it is a clunky way to do it but hopefully we can build off of it for real i/o.
-  */
-  var entry = Object.create(template);
-  entry["id"] = id;
-  entry["image"] = image;
-  entry["name"] = name;
-  entry["owner"] = owner;
-  entry["account"] = [accountHandle, accountLink];
-  entry["typing"] = typing;
-  entry["status"] = status;
-  
-  registry[id] = entry;
+function newEntry(arr) {
+  let entry = buildTemplate()
+  var selected_field
+  entry["id"] = arr[0]
+  for (i = 0; i < fields.length; i++) {
+    selected_field = fields[i]
+    entry[selected_field] = arr[i + 1]
+    // console.log(entry[selected_field])
+  }
+  // console.log(entry)
+  registry[arr[0]] = entry
 }
 
 function header() {
@@ -76,6 +62,15 @@ function header() {
     LABEL           = document.createElement("td");
     LABEL.innerHTML = parameter.toUpperCase();
     dbHEADER.appendChild(LABEL);
+  }
+}
+function rows() {
+  var row
+  for (i = 0; i < BODY.children.length; i++) {
+    row = BODY.children[i]
+    if (i % 2 == 0) { // every 2nd row
+      row.classList.add("row_alt")
+    }
   }
 }
 function table() {
@@ -140,16 +135,18 @@ function table() {
     }
     BODY.appendChild(ROW);
   }
+  rows() // after all entries are built, script will handle logic related to all rows
 }
 
 function initialize() { // we're calling this function the moment the html body loads.
-  // addEntry(id, image, name, owner, accountHandle, accountLink, typing)
-  addEntry("lime", "lime.jpg", "Lime", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "🟢> example", "Active");
-  addEntry("neroli", "neroli.jpg", "Neroli", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "🐟> example", "Active");
-  addEntry("stardust", "stardust.jpg", "Stardust", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "⭐️ example", "Active");
-  addEntry("lovedeath", "lovedeath.jpg", "Lovedeath", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "💜> example", "Active");
-  addEntry("flora", "flora.jpg", "Flora", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "🌻> example", "Active");
-  addEntry("hydrangea", "hydrangea.jpg", "Hydrangea", "PauIndeed", "@solstice_labs", "https://x.com/solstice_labs", "", "Active");
-  addEntry("cecile", "cecile.jpg", "Cécile", "Cécilemin", "@jacques_ladder", "https://x.com/jacques_ladder", null, "Retired ARG, but active in community");
+  // newEntry(id, image, name, owner, accountHandle, accountLink, typing)
+  newEntry(["lemon"      , "lemon.jpg"     , "Lemon"      , "PauIndeed"  , ["@LEMONSYSEXE"     , "https://x.com/LEMONSYSEXE"]     , "🟡> example"   , "Active"]);
+  newEntry(["lime"       , "lime.jpg"      , "Lime"      , "PauIndeed"   , ["@LEMONSYSEXE"     , "https://x.com/LEMONSYSEXE"]     , "🟢> example"   , "Active"]);
+  newEntry(["neroli"     , "neroli.jpg"    , "Neroli"    , "PauIndeed"   , ["@LEMONSYSEXE"     , "https://x.com/LEMONSYSEXE"]     , "🐟> example"   , "Active"]);
+  newEntry(["stardust"   , "stardust.jpg"  , "Stardust"  , "PauIndeed"   , ["@LEMONSYSEXE"     , "https://x.com/LEMONSYSEXE"]     , "⭐️ example"    , "Active"]);
+  newEntry(["lovedeath"  , "lovedeath.jpg" , "Lovedeath" , "PauIndeed"   , ["@LEMONSYSEXE"     , "https://x.com/LEMONSYSEXE"]     , "💜> example"   , "Active"]);
+  newEntry(["flora"      , "flora.jpg"     , "Flora"     , "PauIndeed"   , ["@LEMONSYSEXE"     , "https://x.com/LEMONSYSEXE"]     , "🌻> example"    , "Active"]);
+  newEntry(["hydrangea"  , "hydrangea.jpg" , "Hydrangea" , "PauIndeed"   , ["@solstice_labs"   , "https://x.com/solstice_labs"]   , ""               , "Active"]);
+  newEntry(["cecile"     , "cecile.jpg"    , "Cécile"    , "Cécilemin"   , ["@jacques_ladder"  , "https://x.com/jacques_ladder"]  , null            , "Retired ARG, but active in community."]);
   table();
 }

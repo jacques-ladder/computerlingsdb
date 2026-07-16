@@ -9,6 +9,9 @@
 :root {
   --standard_image_size: 200px;
   --standard_padding: 8px;
+  --blue  : #7cbde9;
+  --dark  : #3664a4;
+  --light : #c1e6f8;
 }
 * {
   font-family: "VCR OSD Mono","Segoe UI",system-ui;
@@ -37,7 +40,7 @@ h1, h2, h3, p, .returnbtn{
 }
 
 .returnbtn{
-  background-color:#7cbde9;
+  background-color: var(--blue);
   color:black;
   border-radius: 10px;
   padding:10px;
@@ -45,7 +48,7 @@ h1, h2, h3, p, .returnbtn{
 }
 .returnbtn:hover{
   color:white;
-  background-color:#304a5c;
+  background-color: var(--dark);
   transition:0.2s;
 }
 
@@ -53,7 +56,7 @@ h1, h2, h3, p, .returnbtn{
 .navbar{
   display:flex;
   align-items:center;
-  background-color:#7cbde9;
+  background-color: var(--blue);
   padding: 0 2%;
   height:70px;
   gap:15px;
@@ -68,7 +71,7 @@ table, td {
 }
 #dbHEADER > td {
   font-weight       : bold;
-  background-color  : #7cbde9;
+  background-color  : var(--blue);
   vertical-align    : middle;
   text-align        : center;
   padding-top       : 4px;
@@ -93,7 +96,7 @@ td.account {
   padding     : var(--standard_padding);
 }
 td.account a{
-  background-color:#7cbde9;
+  background-color: var(--blue);
   color:black;
   border-radius: 10px;
   padding:10px;
@@ -101,7 +104,7 @@ td.account a{
 }
 td.account a:hover{
   color:white;
-  background-color:#304a5c;
+  background-color: var(--dark);
   transition:0.2s;
 }
 td.typing {
@@ -122,4 +125,7 @@ td.INVALID {
   background  : #7F0000;
   font-weight : bold;
   color       : #FFF;
+}
+.row_alt {
+  background-color: var(--light)
 }
