@@ -4,9 +4,11 @@
   
 /* Custom font (VCR OSD Mono) taken from the fonts folder */
 @font-face {
-    font-family: "VCR OSD Mono";
-    src: url(computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.ttf);
-    font-weight: normal;
+    font-family : "VCR OSD Mono";
+    src         : url(computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.ttf) format("truetype");
+    src         : url(computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.otf) format("opentype");
+    src         : url(computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.woff2) format("woff2");
+    font-weight : normal;
 }
    
 :root {
@@ -50,7 +52,7 @@ td.status {
   padding     : var(--standard_padding);
   max-width   : 200px;
   word-wrap   : normal;
-  text-align  : justify;
+  text-align  : left;
 }
 td.INVALID {
   padding     : var(--standard_padding);
