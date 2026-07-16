@@ -66,7 +66,12 @@ table, td {
   
 }
 #dbHEADER > td {
-  font-weight : bold;
+  font-weight       : bold;
+  background-color  : #7cbde9;
+  vertical-align    : middle;
+  text-align        : center;
+  padding-top       : 4px;
+  padding-bottom    : 4px;
 }
 img.photo {
   width       : var(--standard_image_size);
