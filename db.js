@@ -7,7 +7,8 @@
 // - make argument in ADDENTRY()
 // - assign it in ADDENTRY()
 // - create it's case in the switch statement under TABLE()
-// - update all previous entires with data
+// - update all previous entires with appropriate data for field
+// - add it's class in style.css
 //
 // we will figure out a script that automates this later. - cécilemin
 
