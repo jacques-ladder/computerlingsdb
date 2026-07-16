@@ -148,6 +148,7 @@ function initialize() { // we're calling this function the moment the html body 
   addEntry("stardust", "stardust.jpg", "Stardust", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "⭐️ example", "Active");
   addEntry("lovedeath", "lovedeath.jpg", "Lovedeath", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "💜> example", "Active");
   addEntry("flora", "flora.jpg", "Flora", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "🌻> example", "Active");
+  addEntry("hydrangea", "hydrangea.jpg", "Hydrangea", "PauIndeed", "@solstice_labs", "https://x.com/solstice_labs", "", "Active");
   addEntry("cecile", "cecile.jpg", "Cécile", "Cécilemin", "@jacques_ladder", "https://x.com/jacques_ladder", null, "Retired ARG, but active in community");
   table();
 }
