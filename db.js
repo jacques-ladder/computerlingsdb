@@ -68,7 +68,7 @@ function rows() {
   var row
   for (i = 0; i < BODY.children.length; i++) {
     row = BODY.children[i]
-    if (i % 2 != 0) { // every 2nd row
+    if (i % 2 == 0) { // every other row
       row.classList.add("row_alt")
     }
   }
