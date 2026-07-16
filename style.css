@@ -27,16 +27,50 @@ h1, h2, h3, p, .returnbtn{
   margin: 10px;
 }
 
+/* 404: ERROR PAGE CSS */
 .notfound{
   margin-top:20px;
   display:grid;
   place-items:center;
 }
-.notfound h1{
+/* 404: ERROR PAGE & Petition Form CSS*/
+.notfound, .petitions h1{
   font-size:50px;
 }
-.notfound p{
+.notfound, .petitions p{
   font-size: 20px;
+}
+/* Petition Form CSS */
+.petitions{
+  margin-top:30px;
+  gap:15px;
+  display:grid;
+  place-items:center;
+}
+form{
+  display: flex;
+  flex-direction:column;
+  border: 1px solid;
+  padding:40px;
+  border-radius: 10px;
+  background-color:#c4dbeb;
+}
+input[type=text], select, input[type="submit"]{
+  border-radius:5px;
+  border: 1px solid;
+  height: 30px;
+}
+/* INPUT SUBMIT CSS */
+input[type="submit"]{
+  background-color:#6cb5e6;
+  cursor: pointer;
+  border: 1px solid #7cbde9;
+}
+input[type="submit"]:hover{
+  background-color:#304a5c;
+  border-color: #304a5c;
+  transition:0.2s;
+  color:white;
 }
 
 .returnbtn{
