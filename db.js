@@ -23,8 +23,8 @@ const msg_db_INVALID_parameter = "INVALID DATABASE PARAMETER";
 const msg_db_INVALID_data = "INVALID DATA";
 
 const fields    = [
-  "image",
   "name",
+  "image",
   "account",
   "owner",
   "typing",
@@ -140,13 +140,13 @@ function table() {
 
 function initialize() { // we're calling this function the moment the html body loads.
   // newEntry(id, image, name, owner, accountHandle, accountLink, typing)
-  newEntry(["lemon", "lemon.jpg", "Lemon", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"],"PauIndeed", "🟡> example", "Active"]);
-  newEntry(["lime", "lime.jpg", "Lime", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🟢> example", "Active"]);
-  newEntry(["neroli", "neroli.jpg", "Neroli", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🐟> example", "Active"]);
-  newEntry(["stardust", "stardust.jpg", "Stardust", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "⭐️ example", "Active"]);
-  newEntry(["lovedeath", "lovedeath.jpg", "Lovedeath", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "💜> example", "Active"]);
-  newEntry(["flora", "flora.jpg", "Flora", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🌻> example", "Active"]);
-  newEntry(["hydrangea", "hydrangea.jpg", "Hydrangea", ["@solstice_labs", "https://x.com/solstice_labs"], "PauIndeed", "", "Active"]);
-  newEntry(["cecile", "cecile.jpg", "Cécile", ["@jacques_ladder", "https://x.com/jacques_ladder"], "Cécilemin",  "", "Retired ARG, but active in community."]);
+  newEntry(["lemon", "Lemon", "lemon.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"],"PauIndeed", "🟡> example", "Active"]);
+  newEntry(["lime", "Lime", "lime.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🟢> example", "Active"]);
+  newEntry(["neroli", "Neroli", "neroli.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🐟> example", "Active"]);
+  newEntry(["stardust", "Stardust", "stardust.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "⭐️ example", "Active"]);
+  newEntry(["lovedeath", "Lovedeath", "lovedeath.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "💜> example", "Active"]);
+  newEntry(["flora", "Flora", "flora.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🌻> example", "Active"]);
+  newEntry(["hydrangea", "Hydrangea", "hydrangea.jpg", ["@solstice_labs", "https://x.com/solstice_labs"], "PauIndeed", "", "Active"]);
+  //newEntry(["cecile", "cecile.jpg", "Cécile", ["@jacques_ladder", "https://x.com/jacques_ladder"], "Cécilemin",  "", "Retired ARG, but active in community."]);
   table();
 }
