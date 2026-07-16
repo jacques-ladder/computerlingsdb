@@ -1,4 +1,15 @@
-// ***IMPORTANT***: specify root folder as /computerlingsdb/
+// ***IMPORTANT***: 
+// specify root folder as /computerlingsdb/
+//
+// when adding a new parameter, remember to:
+// - list it in FIELDS
+// - update TEMPLATE
+// - make argument in ADDENTRY()
+// - assign it in ADDENTRY()
+// - create it's case in the switch statement under TABLE()
+// - update all previous entires with data
+//
+// we will figure out a script that automates this later. - cécilemin
 
 const db        = document.getElementById("db");
 const BODY      = document.getElementById("dbBODY");
@@ -39,7 +50,7 @@ const standard_image_size = "200px";
 const msg_db_INVALID_parameter = "INVALID DATABASE PARAMETER";
 const msg_db_INVALID_data = "INVALID DATA";
 
-function addEntry(id, image, name, owner, accountHandle, accountLink, typing) {
+function addEntry(id, image, name, owner, accountHandle, accountLink, typing, status) {
   /*
   cecilemin note:
   this is a temporary way to add entries to the computerlings database dynamically. it is a clunky way to do it but hopefully we can build off of it for real i/o.
@@ -51,6 +62,7 @@ function addEntry(id, image, name, owner, accountHandle, accountLink, typing) {
   entry["owner"] = owner;
   entry["account"] = [accountHandle, accountLink];
   entry["typing"] = typing;
+  entry["status"] = status;
   
   registry[id] = entry;
 }
