@@ -23,14 +23,13 @@ const msg_db_INVALID_parameter = "INVALID DATABASE PARAMETER";
 const msg_db_INVALID_data = "INVALID DATA";
 
 const fields    = [
-  "name",
   "image",
+  "name",
   "account",
   "owner",
   "typing",
   "status"
-  ]; 
-  // IMPORTANT: the order of this array = the order each field is arranged in, left-to-right, when the database is intitialized.
+  ];
 let template = {
     "id"      : null
 };
@@ -54,6 +53,7 @@ function newEntry(arr) {
   }
   // console.log(entry)
   registry[arr[0]] = entry
+  console.log(entry)
 }
 
 function header() {
@@ -85,7 +85,7 @@ function table() {
       var CELL    = document.createElement("td");
       var ELEMENT; // the container for the data, like an <img> element for the photo
       var data;    // the info we're pulling from the entry, like the file path to a photo
-      if (registry[entry][parameter] == "" || registry[entry][parameter] === null) {
+      if (registry[entry][parameter] == "" || registry[entry][parameter] === null || registry[entry][parameter] === undefined) {
         data = "N/A";
       } else {
         data = registry[entry][parameter];
@@ -140,13 +140,13 @@ function table() {
 
 function initialize() { // we're calling this function the moment the html body loads.
   // newEntry(id, image, name, owner, accountHandle, accountLink, typing)
-  newEntry(["lemon", "lemon.jpg", "Lemon", "PauIndeed", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "🟡> example", "Active"]);
-  newEntry(["lime", "lime.jpg", "Lime" , "PauIndeed", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "🟢> example", "Active"]);
-  newEntry(["neroli", "neroli.jpg", "Neroli", "PauIndeed", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "🐟> example", "Active"]);
-  newEntry(["stardust", "stardust.jpg", "Stardust", "PauIndeed", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "⭐️ example", "Active"]);
-  newEntry(["lovedeath", "lovedeath.jpg", "Lovedeath", "PauIndeed", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "💜> example", "Active"]);
-  newEntry(["flora", "flora.jpg", "Flora", "PauIndeed", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "🌻> example", "Active"]);
-  newEntry(["hydrangea", "hydrangea.jpg", "Hydrangea", "PauIndeed", ["@solstice_labs", "https://x.com/solstice_labs"], "", "Active"]);
-  newEntry(["cecile", "cecile.jpg", "Cécile", "Cécilemin", ["@jacques_ladder", "https://x.com/jacques_ladder"] , null, "Retired ARG, but active in community."]);
+  newEntry(["lemon", "lemon.jpg", "Lemon", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"],"PauIndeed", "🟡> example", "Active"]);
+  newEntry(["lime", "lime.jpg", "Lime", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🟢> example", "Active"]);
+  newEntry(["neroli", "neroli.jpg", "Neroli", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🐟> example", "Active"]);
+  newEntry(["stardust", "stardust.jpg", "Stardust", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "⭐️ example", "Active"]);
+  newEntry(["lovedeath", "lovedeath.jpg", "Lovedeath", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "💜> example", "Active"]);
+  newEntry(["flora", "flora.jpg", "Flora", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🌻> example", "Active"]);
+  newEntry(["hydrangea", "hydrangea.jpg", "Hydrangea", ["@solstice_labs", "https://x.com/solstice_labs"], "PauIndeed", "", "Active"]);
+  newEntry(["cecile", "cecile.jpg", "Cécile", ["@jacques_ladder", "https://x.com/jacques_ladder"], "Cécilemin",  "", "Retired ARG, but active in community."]);
   table();
 }
