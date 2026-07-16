@@ -1,4 +1,17 @@
-// ***IMPORTANT***: specify root folder as /computerlingsdb/
+// ***IMPORTANT***: 
+// specify root folder as /computerlingsdb/
+//
+//
+// when adding a new parameter, remember to:
+// - list it in FIELDS
+// - update TEMPLATE
+// - make argument in ADDENTRY()
+// - assign it in ADDENTRY()
+// - create it's case in the switch statement under TABLE()
+// - update all previous entires with appropriate data for field
+// - add it's class in style.css
+//
+// we will figure out a script that automates this later. - cécilemin
 
 const db        = document.getElementById("db");
 const BODY      = document.getElementById("dbBODY");
@@ -8,7 +21,8 @@ const fields    = [
   "image",
   "account",
   "owner",
-  "typing"
+  "typing",
+  "status"
   ]; 
   // IMPORTANT: the order of this array = the order each field is arranged in, left-to-right, when the database is intitialized.
 const template = {
@@ -17,7 +31,8 @@ const template = {
     "name"    : null,
     "owner"   : null,
     "account" : [null, null],
-    "typing"  : null
+    "typing"  : null,
+    "status"  : null
 };
 
 let registry  = new Object();
@@ -27,7 +42,8 @@ registry["lemon"] = { // lemon's entry is hardcoded into the dictionary as a fal
     "name"    : "Lemon",
     "owner"   : "PauIndeed",
     "account" : ["@LEMONSYSEXE", "https://x.com/lemonsysexe"],
-    "typing"  : "🟡> example"
+    "typing"  : "🟡> example",
+    "status"  : "Active"
   };
 
 
@@ -36,7 +52,7 @@ const standard_image_size = "200px";
 const msg_db_INVALID_parameter = "INVALID DATABASE PARAMETER";
 const msg_db_INVALID_data = "INVALID DATA";
 
-function addEntry(id, image, name, owner, accountHandle, accountLink, typing) {
+function addEntry(id, image, name, owner, accountHandle, accountLink, typing, status) {
   /*
   cecilemin note:
   this is a temporary way to add entries to the computerlings database dynamically. it is a clunky way to do it but hopefully we can build off of it for real i/o.
@@ -48,6 +64,7 @@ function addEntry(id, image, name, owner, accountHandle, accountLink, typing) {
   entry["owner"] = owner;
   entry["account"] = [accountHandle, accountLink];
   entry["typing"] = typing;
+  entry["status"] = status;
   
   registry[id] = entry;
 }
@@ -68,14 +85,16 @@ function table() {
     var ROW   = document.createElement("tr");
     ROW.id    = entry;
     
-    for (var parameter of fields) {
-      //console.log(parameter);
-      //console.log(registry[entry][parameter]);
-      
+    for (var parameter of fields) { // cycle through every valid field
       var CELL    = document.createElement("td");
-      var ELEMENT;
-      var data    = registry[entry][parameter];
-      switch (parameter) {
+      var ELEMENT; // the container for the data, like an <img> element for the photo
+      var data;    // the info we're pulling from the entry, like the file path to a photo
+      if (registry[entry][parameter] == "" || registry[entry][parameter] === null) {
+        data = "N/A";
+      } else {
+        data = registry[entry][parameter];
+      }
+      switch (parameter) { // identifies what field is being attached so the script can know how it should handle the data
         case "image":
           CELL.classList.add("photo");
           ELEMENT           = document.createElement("img");
@@ -103,6 +122,11 @@ function table() {
           ELEMENT           = document.createElement("p");
           ELEMENT.innerHTML = data;
           break;
+        case "status":
+          CELL.classList.add("status");
+          ELEMENT           = document.createElement("p");
+          ELEMENT.innerHTML = data;
+          break;
         default:
           CELL.classList.add("INVALID");
           ELEMENT           = document.createElement("p");
@@ -119,10 +143,11 @@ function table() {
 
 function initialize() { // we're calling this function the moment the html body loads.
   // addEntry(id, image, name, owner, accountHandle, accountLink, typing)
-  addEntry("lime", "lime.jpg", "Lime", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "🟢> example");
-  addEntry("neroli", "neroli.jpg", "Neroli", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "🐟> example");
-  addEntry("stardust", "stardust.jpg", "Stardust", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "⭐️ example");
-  addEntry("lovedeath", "lovedeath.jpg", "Lovedeath", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "💜> example");
-  addEntry("flora", "flora.jpg", "Flora", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "🌻> example");
+  addEntry("lime", "lime.jpg", "Lime", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "🟢> example", "Active");
+  addEntry("neroli", "neroli.jpg", "Neroli", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "🐟> example", "Active");
+  addEntry("stardust", "stardust.jpg", "Stardust", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "⭐️ example", "Active");
+  addEntry("lovedeath", "lovedeath.jpg", "Lovedeath", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "💜> example", "Active");
+  addEntry("flora", "flora.jpg", "Flora", "PauIndeed", "@LEMONSYSEXE", "https://x.com/LEMONSYSEXE", "🌻> example", "Active");
+  addEntry("cecile", "cecile.jpg", "Cécile", "Cécilemin", "@jacques_ladder", "https://x.com/jacques_ladder", null, "Retired ARG, but active in community");
   table();
 }
