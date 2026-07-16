@@ -16,6 +16,12 @@
 const db        = document.getElementById("db");
 const BODY      = document.getElementById("dbBODY");
 const HEADER    = document.getElementById("dbHEADER");
+
+const msg_link = "(Link to account)";
+const standard_image_size = "200px";
+const msg_db_INVALID_parameter = "INVALID DATABASE PARAMETER";
+const msg_db_INVALID_data = "INVALID DATA";
+
 const fields    = [
   "name",
   "image",
@@ -25,15 +31,16 @@ const fields    = [
   "status"
   ]; 
   // IMPORTANT: the order of this array = the order each field is arranged in, left-to-right, when the database is intitialized.
-const template = {
-    "id"      : null,
-    "image"   : null,
-    "name"    : null,
-    "owner"   : null,
-    "account" : [null, null],
-    "typing"  : null,
-    "status"  : null
+let template = {
+    "id"      : null
 };
+
+function initializeTemplate() {
+  for (parameter of fields) {
+    template[parameter] = null
+  }
+}
+initializeTemplate()
 
 let registry  = new Object();
 registry["lemon"] = { // lemon's entry is hardcoded into the dictionary as a fall-back.
@@ -45,12 +52,6 @@ registry["lemon"] = { // lemon's entry is hardcoded into the dictionary as a fal
     "typing"  : "🟡> example",
     "status"  : "Active"
   };
-
-
-const msg_link = "(Link to account)";
-const standard_image_size = "200px";
-const msg_db_INVALID_parameter = "INVALID DATABASE PARAMETER";
-const msg_db_INVALID_data = "INVALID DATA";
 
 function addEntry(id, image, name, owner, accountHandle, accountLink, typing, status) {
   /*
