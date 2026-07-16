@@ -30,13 +30,13 @@ const fields    = [
   "typing",
   "status"
   ];
-let template = {
-    "id"      : null
-};
 
 let registry  = new Object();
 
 function buildTemplate() {
+  var template = {
+    "id"      : null
+  };
   for (parameter of fields) {
     template[parameter] = null
   }
@@ -68,7 +68,7 @@ function rows() {
   var row
   for (i = 0; i < BODY.children.length; i++) {
     row = BODY.children[i]
-    if (i % 2 == 0) { // every 2nd row
+    if (i % 2 != 0) { // every 2nd row
       row.classList.add("row_alt")
     }
   }
