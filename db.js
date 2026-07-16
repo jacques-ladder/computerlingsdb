@@ -1,6 +1,7 @@
 // ***IMPORTANT***: 
 // specify root folder as /computerlingsdb/
 //
+//
 // when adding a new parameter, remember to:
 // - list it in FIELDS
 // - update TEMPLATE
@@ -84,19 +85,16 @@ function table() {
     var ROW   = document.createElement("tr");
     ROW.id    = entry;
     
-    for (var parameter of fields) {
-      //console.log(parameter);
-      //console.log(registry[entry][parameter]);
-      
+    for (var parameter of fields) { // cycle through every valid field
       var CELL    = document.createElement("td");
-      var ELEMENT;
-      var data;
+      var ELEMENT; // the container for the data, like an <img> element for the photo
+      var data;    // the info we're pulling from the entry, like the file path to a photo
       if (registry[entry][parameter] == "" || registry[entry][parameter] === null) {
         data = "N/A";
       } else {
         data = registry[entry][parameter];
       }
-      switch (parameter) {
+      switch (parameter) { // identifies what field is being attached so the script can know how it should handle the data
         case "image":
           CELL.classList.add("photo");
           ELEMENT           = document.createElement("img");

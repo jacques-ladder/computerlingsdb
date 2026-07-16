@@ -46,6 +46,12 @@ td.account {
 td.typing {
   padding     : var(--standard_padding);
 }
+td.status {
+  padding     : var(--standard_padding);
+  max-width   : 200px;
+  word-wrap   : normal;
+  text-align  : justify;
+}
 td.INVALID {
   padding     : var(--standard_padding);
   background  : red;
