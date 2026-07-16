@@ -14,13 +14,56 @@
   font-family: "VCR OSD Mono","Segoe UI",system-ui;
 }
 body {
+  margin:0; /* Set as 0 by default so the navbar stays fixed on top*/
   background-color: white;
   color: black;
   font-family: "VCR OSD Mono","Segoe UI";
 }
+
+h1, h2, h3, p, .returnbtn{
+  margin: 10px;
+}
+
+.notfound{
+  margin-top:20px;
+  display:grid;
+  place-items:center;
+}
+.notfound h1{
+  font-size:50px;
+}
+.notfound p{
+  font-size: 20px;
+}
+
+.returnbtn{
+  background-color:#7cbde9;
+  color:black;
+  border-radius: 10px;
+  padding:10px;
+  text-decoration: none;
+}
+.returnbtn:hover{
+  color:white;
+  background-color:#304a5c;
+  transition:0.2s;
+}
+
+/* Styling for the navbar*/
+.navbar{
+  display:flex;
+  align-items:center;
+  background-color:#7cbde9;
+  padding: 0 2%;
+  height:70px;
+  gap:15px;
+}
+
 table, td {
+  margin:10px;
   border      : 1px solid black;
   text-align  : center;
+  
 }
 #dbHEADER > td {
   font-weight : bold;
@@ -42,6 +85,18 @@ td.owner {
 }
 td.account {
   padding     : var(--standard_padding);
+}
+td.account a{
+  background-color:#7cbde9;
+  color:black;
+  border-radius: 10px;
+  padding:10px;
+  text-decoration: none;
+}
+td.account a:hover{
+  color:white;
+  background-color:#304a5c;
+  transition:0.2s;
 }
 td.typing {
   padding     : var(--standard_padding);
