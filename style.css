@@ -1,13 +1,8 @@
-/* CSS is how you can add style to your website, such as colors, fonts, and positioning of your
-   HTML content. To learn how to do something, just try searching Google for questions like
-   "how to change link color." */
-  
-/* Custom font (VCR OSD Mono) taken from the fonts folder */
 @font-face {
     font-family : "VCR OSD Mono";
-    src         : url(computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.ttf) format("truetype");
-    src         : url(computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.otf) format("opentype");
-    src         : url(computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.woff2) format("woff2");
+    src         : url(/computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.ttf) format("truetype");
+    src         : url(/computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.otf) format("opentype");
+    src         : url(/computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.woff2) format("woff2");
     font-weight : normal;
 }
    
