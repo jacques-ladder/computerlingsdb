@@ -33,7 +33,6 @@ h1, h2, h3, p, .returnbtn{
   margin-block-start: 0px;
   margin-block-end: 4px;
   text-align: left;
-  color: #444;
 }
 /* 404: ERROR PAGE CSS */
 .notfound{
@@ -56,13 +55,13 @@ h1, h2, h3, p, .returnbtn{
   place-items:center;
 }
 textarea {
-  max-height: 100px;
-  height: 100px;
+  max-height: 50px;
+  height: 50px;
 }
 #hide > form, textarea {
   min-width: 400px;
   max-width: var(--entrykey_maxwidth);
-  min-height: 100px;
+  min-height: 50px;
 }
 form{
   display: flex;
@@ -73,6 +72,21 @@ form{
   background-color:#c4dbeb;
   max-width: 400px;
 }
+article { /* Styles for the instructions on the petition form.*/
+  border: 1px solid;
+  padding:10px;
+  border-radius: 10px;
+  background-color:#e9f5fc;
+}
+article > ol {
+  margin-block: 4px;
+}
+article > ol > li {
+  font-size: 12px;
+}
+article > p {
+  font-size: 20px;
+}
 input[type=text], select, input[type="button"], button{ /* Styles for the textboxes, dropdown and button on the form */
   border-radius:5px;
   border: 1px solid;
@@ -81,7 +95,7 @@ input[type=text], select, input[type="button"], button{ /* Styles for the textbo
 input[type="button"]{ /* Styles for the button */
   background-color:#6cb5e6;
   cursor: pointer;
-  border: 1px solid #7cbde9;
+  border: 1px solid;
 }
 input[type="button"]:hover{ /* Styles for the button, when hovering on it */
   background-color:#304a5c;
@@ -92,13 +106,14 @@ input[type="button"]:hover{ /* Styles for the button, when hovering on it */
 button{
   background-color:#6cb5e6;
   cursor: pointer;
-  border: 1px solid #7cbde9; 
+  border: 1px solid; 
 }
 button:hover{
   background-color:#304a5c;
   border-color: #304a5c;
   transition:0.2s;
   color:white;
+  border: 1px solid white;
 }
 .returnbtn{ /* Styles for the button in the error page (return to home button) */
   background-color: var(--blue);
