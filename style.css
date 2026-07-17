@@ -132,11 +132,29 @@ button:hover{
   font-size: 16px;
   text-align: center;
 }
-#your_entry {
-  width: 400px;
+#search_machine {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: sticky;
+  top: 0px;
+  border: 1px solid;
+  padding: 8px;
+  border-radius: 10px;
+  background-color:#c4dbeb;
 }
-#your_entry > p {
-  font-size: 18px;
+input.search_bar {
+  height: 40px;
+  width: 30vw;
+  box-sizing: border-box;
+}
+.search_by, .search_bar, .search_button, .dialogue {
+  min-height: 40px;
+  max-height: 40px;
+  align-self: center;
+}
+.dialogue {
+  font-size: 14px;
 }
 /* Styling for the navbar*/
 .navbar{
@@ -212,20 +230,22 @@ button:hover{
   transition:0.2s;
 }
 
+#db {
+  margin-top: 4vh;
+}
 table, td {
   margin:10px;
-  border      : 3px solid black;
+  border      : 2px solid black;
   border-collapse: collapse;
   text-align  : center;
-  
 }
 #dbHEADER > td {
   font-weight       : bold;
   background-color  : var(--blue);
   vertical-align    : middle;
   text-align        : center;
-  padding-top       : 4px;
-  padding-bottom    : 4px;
+  padding-top       : 6px;
+  padding-bottom    : 6px;
 }
 img.photo {
   width       : var(--standard_image_size);
@@ -249,12 +269,14 @@ td.account a{
   background-color: var(--blue);
   color:black;
   border-radius: 10px;
+  border: 1px solid;
   padding:10px;
   text-decoration: none;
 }
 td.account a:hover{
   color:white;
   background-color: var(--dark);
+  border: 1px solid white;
   transition:0.2s;
 }
 td.typing {

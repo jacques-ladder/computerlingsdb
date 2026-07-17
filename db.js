@@ -73,13 +73,20 @@ function rows() {
     }
   }
 }
+function center() {
+  var window_width = window.innerWidth
+  var db_width = db.offsetWidth
+
+  var margin = String((window_width - db_width) / 2)
+  db.style.marginLeft = margin + "px";
+}
+window.onresize = center
 function table() {
   header();
   for (var entry in registry) {
-    console.log(entry);
     
     var ROW   = document.createElement("tr");
-    ROW.id    = entry;
+    ROW.id    = "entry_" + entry;
     
     for (var parameter of fields) { // cycle through every valid field
       var CELL    = document.createElement("td");
@@ -143,12 +150,13 @@ function initialize() { // we're calling this function the moment the html body 
   newEntry(["lemon", "Lemon", "lemon.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"],"PauIndeed", "🟡> example", "Active"]);
   newEntry(["lime", "Lime", "lime.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🟢> example", "Active"]);
   newEntry(["neroli", "Neroli", "neroli.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🐟> example", "Active"]);
-  newEntry(["stardust", "Stardust", "stardust.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "⭐️ example", "Active"]);
+  newEntry(["stardust", "Stardust", "stardust.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "⭐️> example", "Active"]);
   newEntry(["lovedeath", "Lovedeath", "lovedeath.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "💜> example", "Active"]);
   newEntry(["flora", "Flora", "flora.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🌻> example", "Active"]);
   newEntry(["hydrangea", "Hydrangea", "hydrangea.jpg", ["@solstice_labs", "https://x.com/solstice_labs"], "PauIndeed", "", "Active"]);
   //newEntry(["cecile", "cecile.jpg", "Cécile", ["@jacques_ladder", "https://x.com/jacques_ladder"], "Cécilemin",  "", "Retired ARG, but active in community."]);
   table();
+  center();
 }
 
 function initialize_petition() {// intitialize function specific to petition.html
@@ -217,7 +225,7 @@ function generate() {
     });
 }
 const c_button = "copy_entry_key"
-if (document.getElementById(c_button) !== undefined) {
+if (document.getElementById(c_button) !== null) {
   document.getElementById(c_button).addEventListener("click", function(event){
     event.preventDefault(); // stop page from reloading when event fires.
     console.log(document.getElementById("dump").innerHTML);
@@ -248,4 +256,76 @@ function cecileQuickChange(id, text, css_rules) {
       ELEMENT.style[property] = value;
     }
   }
+}
+
+/* ****************************************
+  CODE FOR SEARCH FUNCTION
+******************************************/
+
+function all_entries(mode) {
+  for (entry in registry) {
+    row = document.getElementById("entry_" + registry[entry]["id"])
+    switch (mode) {
+      case "show":
+        if (HEADER.style.display != "table-row") {
+          HEADER.style.display = "table-row"
+        }
+        row.style.display = "table-row"
+        break;
+      case "hide":
+        if (HEADER.style.display != "none") {
+          HEADER.style.display = "none"
+        }
+        row.style.display = "none"
+        break;
+    }
+    
+  }
+}
+if (document.getElementById("search_button") !== null) {
+  document.getElementById("search_button").addEventListener("click", () => {
+    var query = document.querySelector("#search").value.toLowerCase();
+    var search_parameter = document.querySelector("#search_by").value;
+    var dialogue = document.querySelector("#search_dialogue");
+
+    var row
+    var parameter
+    var entries_found = 0
+    all_entries("show")
+    for (entry in registry) {
+      row = document.getElementById("entry_" + registry[entry]["id"]);
+      parameter = registry[entry][search_parameter];
+      if (typeof parameter === "object") {
+        parameter = parameter[0].toString().toLowerCase()
+      } else {
+        parameter = parameter.toString().toLowerCase()
+      }
+      console.log(parameter)
+      switch (query) {
+        case "":
+          row.style.display = "table-row"
+          HEADER.style.display = "table-row"
+          break;
+        default:
+          if (parameter.includes(query)) {
+            row.style.display = "table-row"
+            entries_found += 1
+          } else {
+            row.style.display = "none"
+          }
+          break;
+      }
+    }
+    if (entries_found == 0 && query != "") {
+        HEADER.style.display = "none"
+        dialogue.innerHTML = "No entries found..."
+      } else if (entries_found > 0) {
+        dialogue.innerHTML = "Found (" + entries_found + ") entries with a " + search_parameter + " containing: " + '"' + query + '"';
+      } else {
+        dialogue.innerHTML = ""
+      }
+    center()
+  })
+} else {
+  console.error(".")
 }

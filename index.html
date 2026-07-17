@@ -18,7 +18,16 @@
     </section>
   </header>
   <body onload="initialize()">
-    <p>By Cécilemin and PauIndeed :-)</p>
+    <article id="search_machine">
+      <select id="search_by" class="search_by" name="search_by" required>
+        <option value="name">Name</option>
+        <option value="account">Account</option>
+        <option value="owner">Owner</option>
+      </select>
+      <input type="text" class="search_bar" id="search"></input>
+      <button id="search_button" class="search_button">SEARCH</button>
+      <p id="search_dialogue" class="dialogue"></p>
+    </article>
     <table id="db">
       <thead>
         <tr id="dbHEADER">
