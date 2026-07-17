@@ -73,25 +73,34 @@ form{
   background-color:#c4dbeb;
   max-width: 400px;
 }
-input[type=text], select, input[type="submit"], textarea{
+input[type=text], select, input[type="button"], button{ /* Styles for the textboxes, dropdown and button on the form */
   border-radius:5px;
   border: 1px solid;
   height: 30px;
 }
-/* INPUT SUBMIT CSS */
-input[type="submit"]{
+input[type="button"]{ /* Styles for the button */
   background-color:#6cb5e6;
   cursor: pointer;
   border: 1px solid #7cbde9;
 }
-input[type="submit"]:hover{
+input[type="button"]:hover{ /* Styles for the button, when hovering on it */
   background-color:#304a5c;
   border-color: #304a5c;
   transition:0.2s;
   color:white;
 }
-
-.returnbtn{
+button{
+  background-color:#6cb5e6;
+  cursor: pointer;
+  border: 1px solid #7cbde9; 
+}
+button:hover{
+  background-color:#304a5c;
+  border-color: #304a5c;
+  transition:0.2s;
+  color:white;
+}
+.returnbtn{ /* Styles for the button in the error page (return to home button) */
   background-color: var(--blue);
   color:black;
   border-radius: 10px;
@@ -122,6 +131,33 @@ input[type="submit"]:hover{
   padding: 0 2%;
   height:70px;
   gap:15px;
+}
+
+/* Button to access the petition.html / petition form */
+.petitionbtn{
+  margin-left: 0;
+  background-color: var(--dark);
+  color:white;
+  border-radius: 10px;
+  padding:10px;
+  text-decoration: none;
+}
+.petitionbtn:hover{
+  background-color:#23416b;
+  transition:0.2s;
+}
+
+.infobtn{
+  margin-left: 80vh;
+  background-color: var(--dark);
+  color:white;
+  border-radius: 10px;
+  padding:10px;
+  text-decoration: none;
+}
+.infobtn:hover{
+  background-color:#23416b;
+  transition:0.2s;
 }
 
 table, td {
