@@ -147,7 +147,18 @@ button:hover{
   height:70px;
   gap:15px;
 }
-
+.infolink{
+  background-color: var(--blue);
+  color:black;
+  border-radius: 5px;
+  padding:2.5px;
+  text-decoration: none;
+}
+.infolink:hover{
+  color:white;
+  background-color: var(--dark);
+  transition:0.2s;
+}
 /* Button to access the petition.html / petition form */
 .petitionbtn{
   margin-left: 0;
@@ -171,6 +182,32 @@ button:hover{
   text-decoration: none;
 }
 .infobtn:hover{
+  background-color:#23416b;
+  transition:0.2s;
+}
+
+.infobtnptn{
+  margin-left: 85vh;
+  background-color: var(--dark);
+  color:white;
+  border-radius: 10px;
+  padding:10px;
+  text-decoration: none;
+}
+.infobtnptn:hover{
+  background-color:#23416b;
+  transition:0.2s;
+}
+
+.homebtn{
+  margin-left: 70vh;
+  background-color: var(--dark);
+  color:white;
+  border-radius: 10px;
+  padding:10px;
+  text-decoration: none;
+}
+.homebtn:hover{
   background-color:#23416b;
   transition:0.2s;
 }
