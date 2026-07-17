@@ -150,3 +150,64 @@ function initialize() { // we're calling this function the moment the html body 
   //newEntry(["cecile", "cecile.jpg", "Cécile", ["@jacques_ladder", "https://x.com/jacques_ladder"], "Cécilemin",  "", "Retired ARG, but active in community."]);
   table();
 }
+
+function initialize_petition() {// intitialize function specific to petition.html
+  document.getElementById("hide").style.display = "none"
+}
+function internal_case(str) {
+    temp = str;
+    for (i = 0; i < temp.length; i++) {
+        if (temp.charAt(i) == " ") {
+            temp = temp.replace(temp.charAt(i), "_");
+        }
+        if (temp.charAt(i) == temp.charAt(i).toUpperCase()) {
+            temp = temp.replace(temp.charAt(i), temp.charAt(i).toLowerCase());
+        }
+    }
+    return temp;
+}
+
+function generate() {
+    const dump = document.getElementById("dump");
+
+    const input_name    = document.querySelector("#name").value;
+    if (document.querySelector("#account").value.charAt(0) == "@") {
+      temp_handle = document.querySelector("#account").value.replace("@", "");
+    } else {
+      temp_handle = document.querySelector("#account").value;
+    }
+    const input_account = temp_handle
+    const input_owner   = document.querySelector("#owner").value;
+    const input_type    = document.querySelector("#quirk").value;
+    const input_status  = document.querySelector("#status").value;
+
+    var id
+    var name
+    var photo
+    var handle
+    var link
+    var owner
+    var type
+    var status
+
+     // contains info that is in the middle of being processed
+
+    id      = '"' + internal_case(input_name) + '"'
+    name    = '"' + input_name + '"';
+    photo   = '"' + internal_case(input_name) + ".jpg" + '"';
+    handle  = '"' + input_account + '"';
+    link    = '"' + "https://x.com/" + input_account + '"';
+    owner   = '"' + input_owner + '"';
+    type    = '"' + input_type + '"';
+    status  = '"' + input_status + '"';
+  
+    var entry = [id, name, photo, [handle, link], owner, type, status];
+    //return entry;
+    //["hydrangea", "Hydrangea", "hydrangea.jpg", ["@solstice_labs", "https://x.com/solstice_labs"], "PauIndeed", "", "Active"]
+    //id, name, photo,  [handle, link], owner, type, status
+    //console.log(temp)
+    console.log(entry)
+    dump.innerHTML = "[" + entry + "]";
+    document.getElementById("hide").style.display = "grid"
+    //console.log(input_name)
+}

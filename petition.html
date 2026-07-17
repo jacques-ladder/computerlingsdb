@@ -6,6 +6,7 @@
     <title>Addition Petition</title>
     <link href="/computerlingsdb/style.css" rel="stylesheet" type="text/css" media="all">
     <link rel="icon" type="image/x-icon" href="assets/logo/logo.png?v=2">
+    <script src="/computerlingsdb/db.js"></script>
   </head>
     <header>
     <section class="navbar">
@@ -16,30 +17,39 @@
     </section>
   </header>
   <body>
+    <section class="petitions" id="hide">
+      <h1>Your entry key:</h1>
+        <p id="dump"></p>
+        <div id="your_entry">
+          <p>Copy-paste the entire code!<br><br>Then, go to our Discord, "Céclings" <a href="https://x.com/">[PLACEHOLDER]</a>, and send it in #database-submissions.<br><br>Attach an image of your computerling to your message.</p>
+        </div>
+    </section>
+
     <section class="petitions">
       <h1>Petition form!</h1>
       <form>
-        <label for="name">Computerling Name: </label>
-        <input size="50" type="text" id="name" name="name" placeholder="Lemon">
+        <label for="name">Name of Computerling: </label>
+        <input size="50" type="text" id="name" name="name" placeholder="Lemon" required>
         <p></p>
         <label for="name">Account handle: </label>
-        <input type="text" id="name" name="name" placeholder="@LEMONSYSEXE">
+        <input type="text" id="account" name="account" placeholder="@LEMONSYSEXE" required>
         <p></p>
         <label for="name">Owner of the account: </label>
-        <input type="text" id="name" name="name" placeholder="PauIndeed">
+        <input type="text" id="owner" name="owner" placeholder="PauIndeed" required>
         <p></p>
         <label for="quirk">Typing Quirk: </label>
-        <input type="text" id="quirk" name="quirk" placeholder="🟡> example">
+        <span class="little_text">Type "Sample text" in your computerling's typing quirk, along with any symbols they use when speaking, if either are applicable.<br><br>If your computerling has no typing quirks or symbols, leave blank.</span>
+        <input type="text" id="quirk" name="quirk" placeholder="🟡>> S4MPL3 T3XT">
         <p></p>
         <label for="status">Status: </label>
-        <select name="status" id="status">
+        <select id="status" name="status" required>
             <option value="active">Active</option>
             <option value="semiactive">Semi-Active</option>
             <option value="hiatus">In Hiatus</option>
             <option value="retired">Retired</option>
         </select>
         <p></p>
-        <input type="submit" value="Submit request!">
+        <input type="button" value="Submit request!" onclick="generate()">
       </form>
     </section>
   </body>
