@@ -6,7 +6,6 @@
     <title>Addition Petition</title>
     <link href="/computerlingsdb/style.css" rel="stylesheet" type="text/css" media="all">
     <link rel="icon" type="image/x-icon" href="assets/logo/logo.png?v=2">
-    <script src="/computerlingsdb/db.js"></script>
   </head>
     <header>
     <section class="navbar">
@@ -19,9 +18,12 @@
   <body>
     <section class="petitions" id="hide">
       <h1>Your entry key:</h1>
-        <p id="dump"></p>
+        <form>
+          <textarea id="dump" readonl wrap="hard"></textarea>
+          <button id="copy_entry_key">COPY KEY</button>
+        </form>
         <div id="your_entry">
-          <p>Copy-paste the entire code!<br><br>Then, go to our Discord, "Céclings" <a href="https://x.com/">[PLACEHOLDER]</a>, and send it in #database-submissions.<br><br>Attach an image of your computerling to your message.</p>
+          <p>Copy the code above (including the brackets)!<br><br>Then, go to our Discord, "Céclings" <a href="https://x.com/">[PLACEHOLDER]</a>, and send it in #database-submissions. Attach a good image of your computerling to your message.<br><br>Cécilemin or PauIndeed will add your entry manually. We will ping you when your entry is live!</p>
         </div>
     </section>
 
@@ -53,4 +55,5 @@
       </form>
     </section>
   </body>
+  <script src="/computerlingsdb/db.js"></script>
 </html>

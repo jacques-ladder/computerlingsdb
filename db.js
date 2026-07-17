@@ -152,7 +152,7 @@ function initialize() { // we're calling this function the moment the html body 
 }
 
 function initialize_petition() {// intitialize function specific to petition.html
-  document.getElementById("hide").style.display = "none"
+  document.getElementById("hide").style.display = "none";
 }
 function internal_case(str) {
     temp = str;
@@ -166,7 +166,11 @@ function internal_case(str) {
     }
     return temp;
 }
-
+// the REAL key stored in the script
+// basically if we dump it into innerHTML then try to pull it back out,
+// it converts symbols like ">" to "&gt;"
+// which we don't want
+var entry
 function generate() {
     const dump = document.getElementById("dump");
 
@@ -195,19 +199,53 @@ function generate() {
     id      = '"' + internal_case(input_name) + '"'
     name    = '"' + input_name + '"';
     photo   = '"' + internal_case(input_name) + ".jpg" + '"';
-    handle  = '"' + input_account + '"';
-    link    = '"' + "https://x.com/" + input_account + '"';
+    handle  = '["@' + input_account + '"';
+    link    = '"' + "https://x.com/" + input_account + '"]';
     owner   = '"' + input_owner + '"';
     type    = '"' + input_type + '"';
     status  = '"' + input_status + '"';
   
-    var entry = [id, name, photo, [handle, link], owner, type, status];
-    //return entry;
-    //["hydrangea", "Hydrangea", "hydrangea.jpg", ["@solstice_labs", "https://x.com/solstice_labs"], "PauIndeed", "", "Active"]
-    //id, name, photo,  [handle, link], owner, type, status
-    //console.log(temp)
-    console.log(entry)
-    dump.innerHTML = "[" + entry + "]";
+    entry = "[" + [id, name, photo, [handle, link], owner, type, status] + "]";
+    dump.innerHTML = entry;
     document.getElementById("hide").style.display = "grid"
     //console.log(input_name)
+
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "smooth"
+    });
+}
+const c_button = "copy_entry_key"
+if (document.getElementById(c_button) !== undefined) {
+  document.getElementById(c_button).addEventListener("click", function(event){
+    event.preventDefault(); // stop page from reloading when event fires.
+    console.log(document.getElementById("dump").innerHTML);
+    document.querySelector("#dump").select();
+    document.execCommand("copy");
+    
+    cecileQuickChange(c_button, "ENTRY KEY COPIED!", null);
+    setTimeout(() => {
+      cecileQuickChange(c_button, "COPY TO CLIPBOARD", null)
+    }, 2500)
+  })
+} else {
+  console.error("failed to apply eventListener to entry key copy button.")
+}
+
+function cecileQuickChange(id, text, css_rules) {
+  // css_rules = [[property, value], ["height", "400px"]]
+  const ELEMENT = document.getElementById(id)
+  if (text !== null) {
+    ELEMENT.innerHTML = text
+  }
+  if (css_rules !== null) {
+    var property;
+    var value;
+    for (rule of css_rules) {
+      property = rule[0]
+      value = rule[1]
+      ELEMENT.style[property] = value;
+    }
+  }
 }

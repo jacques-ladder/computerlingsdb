@@ -12,6 +12,7 @@
   --blue  : #7cbde9;
   --dark  : #3664a4;
   --light : #c1e6f8;
+  --entrykey_maxwidth: 1200px;
 }
 * {
   font-family: "VCR OSD Mono","Segoe UI",system-ui;
@@ -32,6 +33,7 @@ h1, h2, h3, p, .returnbtn{
   margin-block-start: 0px;
   margin-block-end: 4px;
   text-align: left;
+  color: #444;
 }
 /* 404: ERROR PAGE CSS */
 .notfound{
@@ -53,6 +55,15 @@ h1, h2, h3, p, .returnbtn{
   display:grid;
   place-items:center;
 }
+textarea {
+  max-height: 100px;
+  height: 100px;
+}
+#hide > form, textarea {
+  min-width: 400px;
+  max-width: var(--entrykey_maxwidth);
+  min-height: 100px;
+}
 form{
   display: flex;
   flex-direction:column;
@@ -62,7 +73,7 @@ form{
   background-color:#c4dbeb;
   max-width: 400px;
 }
-input[type=text], select, input[type="submit"]{
+input[type=text], select, input[type="submit"], textarea{
   border-radius:5px;
   border: 1px solid;
   height: 30px;
@@ -95,7 +106,6 @@ input[type="submit"]:hover{
 /* Styling for where the entry key gets output */
 #dump {
   font-size: 16px;
-  background-color: var(--blue);
   text-align: center;
 }
 #your_entry {
