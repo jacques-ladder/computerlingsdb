@@ -313,3 +313,22 @@ td.INVALID {
 #hide {
   display: none;
 }
+
+.aboutus {
+  display: flex;
+  flex-direction:column;
+  border: 1px solid;
+  padding-top: 25px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
+  border-radius: 10px;
+  background-color:#c4dbeb;
+  margin: 20px;
+}
+.aboutus > div {
+  border: 1px solid;
+  padding:10px;
+  border-radius: 10px;
+  background-color:#e9f5fc;
+}
