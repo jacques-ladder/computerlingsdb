@@ -131,7 +131,8 @@ function table() {
           break;
         case "typing":
           CELL.classList.add("typing");
-          ELEMENT           = document.createElement("p");
+          ELEMENT           = document.createElement("textarea");
+          ELEMENT.readOnly  = true;
           ELEMENT.innerHTML = data;
           break;
         case "status":

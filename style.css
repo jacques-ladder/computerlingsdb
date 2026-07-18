@@ -55,13 +55,12 @@ h1, h2, h3, p, .returnbtn{
   place-items:center;
 }
 textarea {
-  max-height: 50px;
   height: 50px;
+  resize      : horizontal;
 }
 #hide > form, textarea {
   min-width: 400px;
   max-width: var(--entrykey_maxwidth);
-  min-height: 50px;
 }
 form{
   display: flex;
@@ -85,7 +84,7 @@ article > ol > li {
   font-size: 12px;
 }
 article > p {
-  font-size: 20px;
+  font-size: 12px;
 }
 span > ul {
   margin-block: 2px;
@@ -132,7 +131,7 @@ button:hover{
 }
 /* Styling for where the entry key gets output */
 #dump {
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
 }
 #search_machine {
@@ -245,6 +244,9 @@ input.search_bar {
   margin-top: 4vh;
   max-width: 900px;
 }
+#dbBODY {
+  max-width: 900px;
+}
 table, td {
   margin:10px;
   border      : 2px solid black;
@@ -273,7 +275,7 @@ td.photo {
 }
 td.name {
   padding     : var(--standard_padding);
-  max-width   : 10%
+  max-width   : 10%;
 }
 td.owner {
   padding     : var(--standard_padding);
@@ -300,7 +302,12 @@ td.account a:hover{
   flex-direction: column;
 }
 td.typing {
-  padding     : var(--standard_padding);
+  padding     : 0;
+  max-width   : 10%;
+}
+.typing > textarea {
+  resize      : none;
+  min-width   : 10%
 }
 td.status {
   padding     : var(--standard_padding);
