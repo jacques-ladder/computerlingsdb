@@ -25,7 +25,7 @@ const msg_db_INVALID_data = "INVALID DATA";
 const fields    = [
   "name",
   "image",
-  "account",
+  "links",
   "owner",
   "typing",
   "status"
@@ -74,11 +74,13 @@ function rows() {
   }
 }
 function center() {
-  var window_width = window.innerWidth
-  var db_width = db.offsetWidth
+  if (db !== null) {
+    var window_width = window.innerWidth
+    var db_width = db.offsetWidth
 
-  var margin = String((window_width - db_width) / 2)
-  db.style.marginLeft = margin + "px";
+    var margin = String((window_width - db_width) / 2)
+    db.style.marginLeft = margin + "px";
+  }
 }
 window.onresize = center
 function table() {
@@ -114,11 +116,18 @@ function table() {
           ELEMENT           = document.createElement("p");
           ELEMENT.innerHTML = data;
           break;
-        case "account":
+        case "links":
+          console.log(data)
           CELL.classList.add("account");
-          ELEMENT           = document.createElement("a");
-          ELEMENT.href      = data[1];
-          ELEMENT.innerHTML = data[0];
+          ELEMENT = document.createElement("div");
+          ELEMENT.classList.add("links");
+          for (link in data) {
+            var ELEMENT2
+            ELEMENT2           = document.createElement("a");
+            ELEMENT2.href      = data[link][1];
+            ELEMENT2.innerHTML = data[link][0];
+            ELEMENT.appendChild(ELEMENT2);
+          }
           break;
         case "typing":
           CELL.classList.add("typing");
@@ -137,24 +146,28 @@ function table() {
           console.error("INVALID PARAMETER [" + parameter + "] IN ROW: " + ROW.id);
           break;
       }
-      CELL.appendChild(ELEMENT);
+      if (ELEMENT !== null) {
+        CELL.appendChild(ELEMENT);
+      }
       ROW.appendChild(CELL);
     }
     BODY.appendChild(ROW);
   }
   rows() // after all entries are built, script will handle logic related to all rows
 }
-
 function initialize() { // we're calling this function the moment the html body loads.
-  // newEntry(id, image, name, owner, accountHandle, accountLink, typing)
-  newEntry(["lemon", "Lemon", "lemon.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"],"PauIndeed", "🟡> example", "Active"]);
-  newEntry(["lime", "Lime", "lime.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🟢> example", "Active"]);
-  newEntry(["neroli", "Neroli", "neroli.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🐟> example", "Active"]);
-  newEntry(["stardust", "Stardust", "stardust.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "⭐️> example", "Active"]);
-  newEntry(["lovedeath", "Lovedeath", "lovedeath.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "💜> example", "Active"]);
-  newEntry(["flora", "Flora", "flora.jpg", ["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"], "PauIndeed", "🌻> example", "Active"]);
-  newEntry(["hydrangea", "Hydrangea", "hydrangea.jpg", ["@solstice_labs", "https://x.com/solstice_labs"], "PauIndeed", "", "Active"]);
-  //newEntry(["cecile", "cecile.jpg", "Cécile", ["@jacques_ladder", "https://x.com/jacques_ladder"], "Cécilemin",  "", "Retired ARG, but active in community."]);
+  // newEntry(id, image, name, owner, [[accountHandle, accountLink], typing)
+  newEntry(["lemon", "Lemon", "lemon.jpg", [["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"],["Strawpage", "https://lemondotexe.straw.page"]],"PauIndeed", "🟡> example", "Active"]);
+  newEntry(["lime", "Lime", "lime.jpg", [["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"],["Strawpage", "https://lemondotexe.straw.page"]], "PauIndeed", "🟢> example", "Active"]);
+  newEntry(["neroli", "Neroli", "neroli.jpg", [["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"],["Strawpage", "https://lemondotexe.straw.page"]], "PauIndeed", "🐟> example", "Active"]);
+  newEntry(["stardust", "Stardust", "stardust.jpg", [["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"],["Strawpage", "https://lemondotexe.straw.page"]], "PauIndeed", "⭐️> example", "Active"]);
+  newEntry(["lovedeath", "Lovedeath", "lovedeath.jpg", [["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"],["Strawpage", "https://lemondotexe.straw.page"]], "PauIndeed", "💜> example", "Active"]);
+  newEntry(["flora", "Flora", "flora.jpg", [["@LEMONSYSEXE", "https://x.com/LEMONSYSEXE"],["Strawpage", "https://lemondotexe.straw.page"]], "PauIndeed", "🌻> example", "Active"]);
+  newEntry(["hydrangea", "Hydrangea", "hydrangea.jpg", [["@solstice_labs", "https://x.com/solstice_labs"],["Strawpage", "https://lemondotexe.straw.page"]], "PauIndeed", "", "Active"]);
+  newEntry(["pull_cord","Pull Cord","pull_cord.jpg",[["@pull_cord","https://x.com/pull_cord"]],"Cécilemin","> saaaaample,,,, um, text???","Active"]);
+  /*
+  newEntry();
+  */
   table();
   center();
 }
@@ -188,36 +201,48 @@ function generate() {
     } else {
       temp_handle = document.querySelector("#account").value;
     }
-    const input_account = temp_handle
+    var temp_links
+    const input_account = ["@" + temp_handle, "https://x.com/" + temp_handle]
+    const input_link2   = [document.querySelector("#link2_name").value, document.querySelector("#link2_address").value]
+    const input_link3   = [document.querySelector("#link3_name").value, document.querySelector("#link3_address").value]
+    let input_links = []
+    temp_links = [input_account, input_link2, input_link3]
+    console.log
+    for (array_link of temp_links) {
+      var hyperlink = array_link[1]
+      if (hyperlink == "" || hyperlink === null || hyperlink === undefined) {
+        // link array does not get pushed
+      } else {
+        var processed_array_link = '["' + array_link[0] + '"' + ',' + '"' + array_link[1] + '"]'
+        input_links.push(processed_array_link)
+      }
+    }
     const input_owner   = document.querySelector("#owner").value;
     const input_type    = document.querySelector("#quirk").value;
     const input_status  = document.querySelector("#status").value;
-
+    console.log(input_links)
     var id
     var name
     var photo
     var handle
-    var link
+    var links
     var owner
     var type
     var status
 
-     // contains info that is in the middle of being processed
 
     id      = '"' + internal_case(input_name) + '"'
     name    = '"' + input_name + '"';
     photo   = '"' + internal_case(input_name) + ".jpg" + '"';
-    handle  = '["@' + input_account + '"';
-    link    = '"' + "https://x.com/" + input_account + '"]';
+    links   = '[' + String(input_links) + ']'
     owner   = '"' + input_owner + '"';
     type    = '"' + input_type + '"';
     status  = '"' + input_status + '"';
   
-    entry = "[" + [id, name, photo, [handle, link], owner, type, status] + "]";
+    entry = "[" + [id, name, photo, [links], owner, type, status] + "]";
     dump.innerHTML = entry;
     document.getElementById("hide").style.display = "grid"
-    //console.log(input_name)
-
+    console.log(entry)
     window.scrollTo({
       top: 0,
       left: 0,
@@ -327,5 +352,31 @@ if (document.getElementById("search_button") !== null) {
     center()
   })
 } else {
-  console.error(".")
+  console.warn("no search bar")
 }
+document.querySelector("#search_by").addEventListener("change", () => {
+  placeholder_by_category()
+})
+function placeholder_by_category() {
+  var category = document.querySelector("#search_by").value;
+  var placeholder = document.getElementById("search").placeholder;
+
+  switch (category) {
+    case "name":
+      document.getElementById("search").placeholder = "Searching by name...";
+      break;
+    case "links":
+      document.getElementById("search").placeholder = "Searching by account handles...";
+      break;
+    case "owner":
+      document.getElementById("search").placeholder = "Searching by admin/owner...";
+      break;
+    case "typing":
+      document.getElementById("search").placeholder = "Searching by typing quirk/symbol...";
+      break;
+    default:
+      document.getElementById("search").placeholder = "";
+      break;
+  }
+}
+placeholder_by_category()

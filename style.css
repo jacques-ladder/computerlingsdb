@@ -87,6 +87,9 @@ article > ol > li {
 article > p {
   font-size: 20px;
 }
+span > ul {
+  margin-block: 2px;
+}
 input[type=text], select, input[type="button"], button{ /* Styles for the textboxes, dropdown and button on the form */
   border-radius:5px;
   border: 1px solid;
@@ -240,6 +243,7 @@ input.search_bar {
 
 #db {
   margin-top: 4vh;
+  max-width: 900px;
 }
 table, td {
   margin:10px;
@@ -263,9 +267,13 @@ img.photo {
 }
 td.photo {
   padding     : 0;
+  min-width    : var(--standard_image_size);
+  max-width   : var(--standard_image_size);
+  width       : var(--standard_image_size);
 }
 td.name {
   padding     : var(--standard_padding);
+  max-width   : 10%
 }
 td.owner {
   padding     : var(--standard_padding);
@@ -286,6 +294,10 @@ td.account a:hover{
   background-color: var(--dark);
   border: 1px solid white;
   transition:0.2s;
+}
+.links {
+  display: flex;
+  flex-direction: column;
 }
 td.typing {
   padding     : var(--standard_padding);
@@ -331,4 +343,14 @@ td.INVALID {
   padding:10px;
   border-radius: 10px;
   background-color:#e9f5fc;
+}
+.twin_inputs {
+  display: flex;
+  flex-direction: row;
+}
+.name {
+  width: 25%;
+}
+.hyperlink {
+  width: 75%;
 }

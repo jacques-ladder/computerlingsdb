@@ -43,25 +43,38 @@
         <label for="name">Name of Computerling: </label>
         <input size="50" type="text" id="name" name="name" placeholder="Lemon" required>
         <p></p>
-        <label for="account">Account handle: </label>
+        <label for="account">Links:</label>
+        <span class="little_text">You can have 3 account links max.
+          <ul>
+            <li>(REQUIRED) A Twitter account.</li>
+            <li>(OPTIONAL) An extra link for anything</li>
+            <li>(OPTIONAL) An extra link for anything</li>
+          </ul>
+          For the 2 optional links, put the website name on the left and https:// link on the right.
+        </span>
         <input type="text" id="account" name="account" placeholder="@LEMONSYSEXE" required>
-        <p></p>
-        <label for="strawpage">Strawpage/website link: </label>
-        <input type="text" id="strawpage" name="strawpage" placeholder="https://lemondotexe.straw.page" required>
+        <div class="twin_inputs">
+          <input type="text" id="link2_name" name="link2_name" class="name" placeholder="My strawpage!">
+          <input type="text" id="link2_address" name="link2_address" class="hyperlink" placeholder="https://lemondotexe.straw.page">
+        </div>
+        <div class="twin_inputs">
+          <input type="text" id="link3_name" name="link3_name" class="name" placeholder="Neocities!">
+          <input type="text" id="link3_address" name="link3_address" class="hyperlink" placeholder="https://pauindeed.neocities.org">
+        </div>
         <p></p>
         <label for="owner">Owner of the account: </label>
         <input type="text" id="owner" name="owner" placeholder="PauIndeed" required>
         <p></p>
-        <label for="quirk">Typing Quirk: </label>
+        <label for="quirk">Typing Quirk + Symbol: </label>
         <span class="little_text">Type "Sample text" in your computerling's typing quirk, along with any symbols they use when speaking, if either are applicable.<br><br>If your computerling has no typing quirks or symbols, leave blank.</span>
         <input type="text" id="quirk" name="quirk" placeholder="🟡>> S4MPL3 T3XT">
         <p></p>
         <label for="status">Status: </label>
         <select id="status" name="status" required>
-            <option value="active">Active</option>
-            <option value="semiactive">Semi-Active</option>
-            <option value="hiatus">In Hiatus</option>
-            <option value="retired">Retired</option>
+            <option value="Active">Active</option>
+            <option value="Semi-active">Semi-Active</option>
+            <option value="Hiatus">In Hiatus</option>
+            <option value="Retired">Retired</option>
         </select>
         <p></p>
         <input type="button" value="Generate entry key" onclick="generate()">
