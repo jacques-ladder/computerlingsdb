@@ -7,12 +7,24 @@
 }
    
 :root {
-  --standard_image_size: 200px;
-  --standard_padding: 8px;
-  --blue  : #7cbde9;
-  --dark  : #3664a4;
-  --light : #c1e6f8;
-  --entrykey_maxwidth: 1200px;
+  --db_width            : 100px;
+  --p_width             : 100px;
+  --standard_image_size : calc(var(--db_width) * 0.125);
+  --standard_padding    : 8px;
+  --blue                : #7cbde9;
+  --dark                : #3664a4;
+  --light               : #b8dff3;
+  --lighter              : #e6f4fa;
+  --entrykey_maxwidth   : 1200px;
+  --one-cell            : calc(var(--db_width) * 0.1);
+  --two-cell            : calc(var(--db_width) * 0.2);
+  --font-size-all       : clamp(0.4rem, 1vw, 1rem);
+  --font-size_td        : clamp(0.4rem, 1vw, 1rem);
+  --font-size-link      : clamp(0.4rem, 0.8vw, 1rem);
+  --font-size-search    : 0.95rem;
+  --search_bar_height   : 58px;
+  --border              : 1px solid #000;
+  --border_db           : 1px solid #000;
 }
 * {
   font-family: "VCR OSD Mono","Segoe UI",system-ui;
@@ -22,17 +34,11 @@ body {
   background-color: white;
   color: black;
   font-family: "VCR OSD Mono","Segoe UI";
+  font-size: var(--font-size-all)
 }
 
 h1, h2, h3, p, .returnbtn{
   margin: 10px;
-}
-.little_text { /* Little text that describes what to input under each field in the Petitions Form.*/
-  font-size: 12px;
-  word-wrap: normal;
-  margin-block-start: 0px;
-  margin-block-end: 4px;
-  text-align: left;
 }
 /* 404: ERROR PAGE CSS */
 .notfound{
@@ -54,25 +60,63 @@ h1, h2, h3, p, .returnbtn{
   display:grid;
   place-items:center;
 }
-textarea {
-  height: 50px;
-  resize      : horizontal;
+.petitions > form {
+  width: var(--p_width);
+  box-sizing: border-box;
 }
-#hide > form, textarea {
-  min-width: 400px;
+textarea.key {
+  font-size: 14px;
+  text-align: center;
+  resize      : none;
+  overflow-x: scroll;
+  height: 10vh;
+  resize      : vertical;
+  min-width: 100%;
   max-width: var(--entrykey_maxwidth);
+  box-sizing: border-box;
 }
-form{
+form {
   display: flex;
   flex-direction:column;
-  border: 1px solid;
-  padding:40px;
+  border: var(--border);
+  padding-top: 40px;
+  padding-left: 40px;
+  padding-right: 40px;
+  padding-bottom: 40px;
   border-radius: 10px;
   background-color:#c4dbeb;
-  max-width: 400px;
+}
+.input_container {
+  display: flex;
+  flex-direction: column;
+  font-size: clamp(0.4rem, 2vh, 1rem);
+  border: var(--border);
+  padding: 3%;
+  border-radius: 5px;
+  background-color: #e9f5fc;
+  margin-bottom: 0.5vh;
+  align-items: stretch;
+}
+form > h3 {
+  text-align: center;
+  font-size: 3vh;
+}
+.little_text { /* Little text that describes what to input under each field in the Petitions Form.*/
+  font-size: clamp(0.4rem, 1.25vh, 1rem);
+  font-weight: normal;
+  word-wrap: normal;
+  margin-block-start: 0px;
+  margin-block-end: 4px;
+  text-align: left;
+}
+.info {
+  border: var(--border);
+  padding: 4%;
+  border-radius: 5px;
+  background-color: #e9f5fc;
 }
 article { /* Styles for the instructions on the petition form.*/
-  border: 1px solid;
+  border: var(--border);
   padding:10px;
   border-radius: 10px;
   background-color:#e9f5fc;
@@ -83,21 +127,22 @@ article > ol {
 article > ol > li {
   font-size: 12px;
 }
-article > p {
-  font-size: 12px;
+article > span {
+  font-size: 15px;
+  font-weight: bold;
 }
 span > ul {
   margin-block: 2px;
 }
-input[type=text], select, input[type="button"], button{ /* Styles for the textboxes, dropdown and button on the form */
+input[type=text], select, input[type="button"], button, textarea{ /* Styles for the textboxes, dropdown and button on the form */
   border-radius:5px;
-  border: 1px solid;
+  border: var(--border);
   height: 30px;
 }
 input[type="button"]{ /* Styles for the button */
   background-color:#6cb5e6;
   cursor: pointer;
-  border: 1px solid;
+  border: var(--border);
 }
 input[type="button"]:hover{ /* Styles for the button, when hovering on it */
   background-color:#304a5c;
@@ -108,7 +153,7 @@ input[type="button"]:hover{ /* Styles for the button, when hovering on it */
 button{
   background-color:#6cb5e6;
   cursor: pointer;
-  border: 1px solid; 
+  border: var(--border); 
 }
 button:hover{
   background-color:#304a5c;
@@ -129,51 +174,74 @@ button:hover{
   background-color: var(--dark);
   transition:0.2s;
 }
-/* Styling for where the entry key gets output */
-#dump {
-  font-size: 14px;
-  text-align: center;
+.required2::before {
+  content: "*";
+  color: red;
 }
+.required::after {
+  content: "*";
+  color: red;
+}
+/* Styling for where the entry key gets output */
 #search_machine {
   display: flex;
   flex-direction: row;
   align-items: center;
   position: sticky;
   top: 0px;
-  border: 1px solid;
+  border: var(--border);
   padding: 8px;
   border-radius: 10px;
   background-color:#c4dbeb;
 }
 input.search_bar {
   height: 40px;
-  width: 30vw;
+  width: 40%;
   box-sizing: border-box;
 }
 .search_by, .search_bar, .search_button, .dialogue {
+  font-size : var(--font-size-search);
+  font-weight: normal;
   min-height: 40px;
   max-height: 40px;
   align-self: center;
+  padding   : 1vh;
 }
 .dialogue {
   line-height: 24px;
+  font-weight: normal;
   box-sizing: border-box;
-  font-size: 14px;
-  border: 1px solid;
+  font-size: var(--font-size-search);
+  border: var(--border);
   padding: 8px;
   border-radius: 10px;
   background-color:#e9f5fc;
-  min-width: 20vw;
+  min-width : 20vw;
+  width     : 100%;
   margin-left: 10px;
 }
 /* Styling for the navbar*/
 .navbar{
   display:flex;
+  flex-direction: row;
   align-items:center;
   background-color: var(--blue);
-  padding: 0 2%;
+  padding: 0 1%;
   height:70px;
   gap:15px;
+  justify-content: space-between;
+}
+.navbar > div {
+  display: flex;
+  flex-direction: row;
+  vertical-align: middle;
+}
+.navbar > .logo > a {
+  margin: 0px 4px 0px;
+  
+}
+.navbar > .navbuttons > a {
+  margin: 0px 4px 0px;
 }
 .infolink{
   background-color: var(--blue);
@@ -202,7 +270,6 @@ input.search_bar {
 }
 
 .infobtn{
-  margin-left: 75vh;
   background-color: var(--dark);
   color:white;
   border-radius: 10px;
@@ -239,59 +306,108 @@ input.search_bar {
   background-color:#23416b;
   transition:0.2s;
 }
-
+#dbHEADER {
+  top: var(--search_bar_height);
+  position: sticky;
+}
+#wrapper {
+  max-width: var(--db_width);
+}
 #db {
   margin-top: 4vh;
-  max-width: 900px;
+  width: var(--db_width);
+  margin      :10px;
+  min-width: 500px;
+  border-collapse: separate;
+  border-spacing: 0px;
 }
-#dbBODY {
-  max-width: 900px;
+#db thead td {
+  border-top     : var(--border_db);
+  border-bottom  : var(--border_db);
+  border-right   : var(--border_db);
+  box-sizing: border-box;
 }
-table, td {
-  margin:10px;
-  border      : 2px solid black;
-  border-collapse: collapse;
+#db td {
   text-align  : center;
+  font-size: var(--font-size_td);
+  border-bottom: var(--border_db);
+  border-right: var(--border_db);
 }
+#db tbody td div {
+  max-height: var(--standard_image_size)
+}
+#db td:first-child, #db thead:first-child {
+  border-left: var(--border_db);
+}
+
 #dbHEADER > td {
+  font-size: var(--font-size_td) + 2px;
   font-weight       : bold;
   background-color  : var(--blue);
   vertical-align    : middle;
   text-align        : center;
   padding-top       : 6px;
   padding-bottom    : 6px;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+  border-collapse: separate;
+}
+tr {
+  max-height: 200px;
 }
 img.photo {
-  width       : var(--standard_image_size);
-  height      : var(--standard_image_size);
   margin      : 0;
   display     : block;
+  width       : var(--standard_image_size);
+  height      : var(--standard_image_size);
 }
 td.photo {
   padding     : 0;
-  min-width    : var(--standard_image_size);
   max-width   : var(--standard_image_size);
+  max-height: var(--standard_image_size);
   width       : var(--standard_image_size);
 }
 td.name {
+  max-width   : var(--one-cell);
+  width       : var(--one-cell);
+  padding: 0;
+  align-items: center;
   padding     : var(--standard_padding);
-  max-width   : 10%;
+}
+.names {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding:5%;
+  border-radius: 5px;
+  background-color: #fff;
+  border: var(--border)
+}
+.names > span {
+  font-size: calc(var(--font-size_td) * 0.80)
 }
 td.owner {
   padding     : var(--standard_padding);
+  max-width   : var(--one-cell);
+  width       : var(--one-cell);
 }
 td.account {
   padding     : var(--standard_padding);
+  max-width   : var(--one-cell);
+  width       : var(--one-cell);
 }
-td.account a{
+.links > a{
   background-color: var(--blue);
   color:black;
   border-radius: 10px;
   border: 1px solid;
-  padding:10px;
+  padding: 12%;
   text-decoration: none;
+  font-size: var(--font-size-link);
+  overflow: hidden;
 }
-td.account a:hover{
+.links > a:hover{
   color:white;
   background-color: var(--dark);
   border: 1px solid white;
@@ -301,19 +417,68 @@ td.account a:hover{
   display: flex;
   flex-direction: column;
 }
+
 td.typing {
+  vertical-align  : top;
   padding     : 0;
-  max-width   : 10%;
+  max-width   : var(--one-cell);
+  width       : var(--one-cell);
+  box-sizing: border-box;
 }
-.typing > textarea {
+td.typing > div {
+  box-sizing  : border-box;
+  padding: 0.5vw;
+  width       : 100%;
+  height      : var(--standard_image_size);
+}
+td.typing div textarea {
+  display     : block;
+  box-sizing  : border-box;
+  width       : 100%;
+  min-height      : 100%;
+  text-align  : left;
+  padding     : 2%;
   resize      : none;
-  min-width   : 10%
+  font-size   : calc(var(--font-size_td) - 1px);
+  overflow-y: scroll;
+}
+
+td.description {
+  vertical-align  : top;
+  padding         : 0;
+  box-sizing: border-box;
+}
+td.description > div {
+  box-sizing  : border-box;
+  padding: 0.5vw;
+  width       : 100%;
+  height      : var(--standard_image_size);
+}
+td.description div textarea {
+  display     : block;
+  box-sizing  : border-box;
+  width       : 100%;
+  min-height      : 100%;
+  text-align  : left;
+  padding     : 1%;
+  resize      : none;
+  font-size   : calc(var(--font-size_td) - 1px);
+  overflow-y: scroll;
+}
+.textarea {
+  text-align: center;
+  vertical-align: middle;
+  word-wrap: break-word;
+  padding: 10%;
+  font-size: var(--font-size_td);
 }
 td.status {
   padding     : var(--standard_padding);
   max-width   : 150px;
   word-wrap   : normal;
   text-align  : center;
+  max-width   : var(--one-cell);
+  width       : var(--one-cell);
 }
 td.INVALID {
   padding     : var(--standard_padding);
@@ -325,9 +490,13 @@ td.INVALID {
   font-weight : bold;
   color       : #FFF;
 }
-.row_alt {
-  background-color: var(--light)
+.row_odd {
+  background-color: var(--lighter);
 }
+.row_even {
+  background-color: var(--light);
+}
+
 
 #hide {
   display: none;

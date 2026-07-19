@@ -9,34 +9,41 @@
   </head>
   <header>
     <section class="navbar">
-      <a href="index.html" class="logo">
-        <img src="assets/logo/logotransparent.png" alt="Icon" width="50" height="50">
-      </a>
-      <h2>Computerlings Database</h2>
-      <a class="infobtn" href="info.html">Info</a>
-      <a class="petitionbtn" href="petition.html">Add a Computerling</a>
+      <div class="logo">
+        <a href="index.html" class="logo">
+          <img src="assets/logo/logotransparent.png" alt="Icon" width="50" height="50">
+        </a>
+        <h2>Computerlings Database</h2>
+      </div>
+      <div class="navbuttons">
+        <a class="petitionbtn" href="info.html">Info</a>
+        <a class="petitionbtn" href="petition.html">Add a Computerling</a>
+      </div>
     </section>
   </header>
-  <body onload="initialize()">
+  <body onload="initialize('database')">
     <article id="search_machine">
       <select id="search_by" class="search_by" name="search_by" required>
         <option value="name" selected>Name</option>
-        <option value="links">Handles</option>
+        <option value="links">Accounts</option>
         <option value="owner">Owner</option>
-        <option value="typing">Typing/Symbol</option>
+        <option value="description">Description</option>
+        <option value="typing">Brackets</option>
       </select>
-      <input type="text" class="search_bar" id="search" placeholder="Search..."></input>
+      <input type="text" class="search_bar" id="search" placeholder="Search..." autofocus></input>
       <button id="search_button" class="search_button">SEARCH</button>
       <span id="search_dialogue" class="dialogue"></span>
     </article>
-    <table id="db">
-      <thead>
-        <tr id="dbHEADER">
-        </tr>
-      </thead>
-      <tbody id="dbBODY">
-      </tbody>
-    </table>
+    <div id="wrapper">
+      <table id="db">
+        <thead>
+          <tr id="dbHEADER">
+          </tr>
+        </thead>
+        <tbody id="dbBODY">
+        </tbody>
+      </table>
+    </div>
     <script src="db.js"></script>
   </body>
 </html>

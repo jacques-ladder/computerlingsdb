@@ -8,25 +8,31 @@
     <link rel="icon" type="image/x-icon" href="assets/logo/logo.png?v=2">
   </head>
     <header>
-    <section class="navbar">
-      <a href="index.html" class="logo">
-        <img src="assets/logo/logotransparent.png" alt="Icon" width="50" height="50">
-      </a>
-      <h2>Computerlings Database</h2>
-      <a class="infobtnptn" href="info.html">Info</a>
-      <a class="petitionbtn" href="index.html">Return home</a>
-    </section>
-  </header>
-  <body>
+      <section class="navbar">
+        <div class="logo">
+          <a href="index.html" class="logo">
+            <img src="assets/logo/logotransparent.png" alt="Icon" width="50" height="50">
+          </a>
+          <h2>Computerlings Database</h2>
+        </div>
+        <div class="navbuttons">
+          <a class="infobtn" href="info.html">Info</a>
+          <a class="petitionbtn" href="index.html">Database</a>
+        </div>
+      </section>
+    </header>
+  <body onload="initialize('petition')">
     <section class="petitions" id="hide">
-      <h1>Your entry key:</h1>
         <form>
-          <textarea id="dump" readonly wrap="hard"></textarea>
-          <button id="copy_entry_key">COPY TO CLIPBOARD</button>
+          <h3>YOUR ENTRY KEY</h3>
+          <div class="input_container">
+            <textarea class=key id="dump" readonly wrap="hard"></textarea>
+            <button id="copy_entry_key">COPY TO CLIPBOARD</button>
+          </div>
         </form>
     </section>
 
-    <section class="petitions">
+    <section id="petition_form" class="petitions">
       <h1>Petition form!</h1>
       <form>
         <article>
@@ -38,20 +44,36 @@
             <li>Go to #petitions.</li>
             <li>Send a message that includes your code AND an image of your computerling.</li>
           </ol>
-          <p><b>You can petition for as many of your characters as you want! Just copy and save keys for each!</b></p>
+          <span class="little_text">You can petition for as many of your characters as you want! Just copy and save keys for each!</span>
+          <p></p>
+          <span class="little_text required2"> = Required</span>
         </article>
         <p></p>
-        <label for="name">Name of Computerling: </label>
+        <article class="input_container">
+        <label for="name" class="required">Name of Computerling:</label>
         <input size="50" type="text" id="name" name="name" placeholder="Lemon" required>
+        </article>
         <p></p>
-        <label for="account">Links:</label>
+        <article class="input_container">
+        <label for="pronouns">Computerling's Prounouns:</label>
+        <input size="50" type="text" id="pronouns" name="pronouns" placeholder="He/Him/...">
+        </article>
+        <p></p>
+        <article class="input_container">
+        <label for="description" class="required">Description:</label>
+        <span class="little_text">A short description of your character. Who they are, what they are like, their story and goals.<br><br><b>Can be in-character or out-of-character, whichever way you want to write it in.</b></span>
+        <input type="text" name="description" id="description" placeholder="🟡: Hiiii im lemon and i like being friends with anybody!! I try to be as friendly as possible :D" required>
+        </article>
+        <p></p>
+        <article class="input_container">
+        <label for="account" class="required">Links:</label>
         <span class="little_text">You can have 3 account links max.
           <ul>
-            <li>(REQUIRED) A Twitter account.</li>
+            <li class="required">A Twitter account.</li>
             <li>(OPTIONAL) An extra link</li>
             <li>(OPTIONAL) An extra link</li>
           </ul>
-          For the 2 optional links, put the website name on the left and https:// link on the right.
+          For the 2 optional links, put the website name on the left and https:// link on the right.<br><br>This would be a good place to add a link the author's account.
         </span>
         <input type="text" id="account" name="account" placeholder="@LEMONSYSEXE" required>
         <div class="twin_inputs">
@@ -62,21 +84,29 @@
           <input type="text" id="link3_name" name="link3_name" class="name" placeholder="Neocities!">
           <input type="text" id="link3_address" name="link3_address" class="hyperlink" placeholder="https://pauindeed.neocities.org">
         </div>
+        </article>
         <p></p>
-        <label for="owner">Owner of the account: </label>
-        <input type="text" id="owner" name="owner" placeholder="PauIndeed" required>
+        <article class="input_container">
+        <label for="owner">Name of Owner(s) (YOURS!): </label>
+        <span class="little_text">Use your main username.<br><br>Leave blank for anonymous.</span>
+        <input type="text" id="owner" name="owner" placeholder="PauIndeed, Xx_EpicPlaceholder_xX, ..." required>
+        </article>
         <p></p>
-        <label for="quirk">Typing Quirk + Symbol: </label>
-        <span class="little_text">Type "Sample text" in your computerling's typing quirk, along with any symbols they use when speaking, if either are applicable.<br><br>If your computerling has no typing quirks or symbols, leave blank.</span>
+        <article class="input_container">
+        <label for="quirk">Typing Quirk + Brackets: </label>
+        <span class="little_text">Type "Sample text" in your computerling's typing quirk, along with any symbols/brackets they use when speaking, if either are applicable.<br><br>If your computerling has no typing quirks or symbols, leave blank.</span>
         <input type="text" id="quirk" name="quirk" placeholder="🟡>> S4MPL3 T3XT">
+        </article>
         <p></p>
-        <label for="status">Status: </label>
+        <article class="input_container">
+        <label for="status" class="required">Status:</label>
         <select id="status" name="status" required>
             <option value="Active">Active</option>
             <option value="Semi-active">Semi-Active</option>
             <option value="Hiatus">In Hiatus</option>
             <option value="Retired">Retired</option>
         </select>
+        </article>
         <p></p>
         <input type="button" value="Generate entry key" onclick="generate()">
       </form>
