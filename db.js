@@ -394,11 +394,11 @@ function initialize(page) { // we're calling this function the moment the html b
       newEntry(['nyx',['Nyx','She/Her'],'nyx.jpg',[['@SukantoRobotics','https://x.com/SukantoRobotics'],['StrawPage','https://scph70012.straw.page/']],'Chip Macro','(🟥) Hello, I’m Nyx. It’s nice to meet you all!','(🟥) Sample text.','Active']);
       newEntry(['xenia',['Xenia','He/Him'],'xenia.jpg',[['@SukantoRobotics','https://x.com/SukantoRobotics'],['StrawPage','https://scph70012.straw.page/']],'Chip Macro','(🟢) - sup yall im xenia, i tend 2 use acronyms & abbreviations for stuff bc proper grammer is 4 nerds lol','(🟢) - sample txt','Active']);
       newEntry(['core',['Core','He/they'],'core.jpg',[['@M4tr1x_V1','https://x.com/M4tr1x_V1'],['StrawPage','https://matriv16.straw.page']],'Glacier','Former security ai of lab, role currently taken over by matrix whom they share all devices with. Originally boisterous and friendly with a penchant for light chaos is currently distrustful and partly explosive','💥< if I had my way, you wouldnt step foot in these labs.','Active']);
-      /* 
-      newEntry();
-      newEntry();
-      newEntry();
-      newEntry();
+      newEntry(['ei_em',['Ei Em','He/They'],'ei_em.jpg',[['@SaveTheTroupe','https://x.com/SaveTheTroupe']],'GarnetSoEpic','🤍🕛: H-Hello everyone! I’m Ei Em, part of the Goraku Troupe! I-I’m also in the same body as Pi Em and occupy the first half of the d-day...','🤍🕛: Sample text','Active']);
+      newEntry(['pi_em',['Pi Em','She/They'],'pi_em.jpg',[['@SaveTheTroupe','https://x.com/SaveTheTroupe']],'GarnetSoEpic','🖤🕛: WASSUP BITCHES! IT’S ME! PI EM, THE BEST IN THE GORAKU TROUPE, AND READY TO MAKE Y’ALL SMILE! I’M IN THE SAME BODY AS EI EM AND TAKE THE LATTER HALF OF THE DAY!','🖤🕛: SAMPLE TEXT','Active']);
+      newEntry(['abba',['Abba','She/They'],'abba.jpg',[['@SaveTheTroupe','https://x.com/SaveTheTroupe']],'GarnetSoEpic','💜🍷: What’s this? Visitors? Oh welcome welcome! I’m Abba! Alchemist and coroner! Miihe! I like to make special potions for my act but as a side, I like the study bodies and corpses! If you ever want a body examined, come to me... Mihehe...','💜🍷: Sample text','Active']);
+      newEntry(['master_builder_abbie',['Master Builder Abbie','They/She/Any'],'master_builder_abbie.jpg',[['@SaveTheTroupe','https://x.com/SaveTheTroupe']],'GarnetSoEpic','🩵🔧: Hello everyone! I’m Master Builder Abbie, but you can refer to me as Master Builder or anything else! I help take care of injuries in the Goraku Troupe, and help people through issues!','🩵🔧: Sample text','Active']);
+      /*
       newEntry();
       newEntry();
       newEntry();
