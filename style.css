@@ -395,6 +395,11 @@ td.name {
 .names > span {
   font-size: calc(var(--font-size_td) * 0.80)
 }
+div.names > label {
+  overflow-x : scroll;
+  white-space: nowrap;
+  scrollbar-width: thin;
+}
 td.owner {
   padding     : var(--standard_padding);
   max-width   : var(--one-cell);
@@ -412,6 +417,7 @@ td.account {
   border: 1px solid;
   padding: 12%;
   text-decoration: none;
+  text-align: center;
   font-size: var(--font-size-link);
   overflow: hidden;
 }

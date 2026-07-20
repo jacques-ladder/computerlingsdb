@@ -117,6 +117,9 @@ function buildTemplate() {
   return template;
 }
 function newEntry(arr) {
+  if (exists(arr) == false) {
+    return;
+  }
   let entry = buildTemplate()
   var selected_field
   entry["id"] = arr[0]
@@ -361,7 +364,42 @@ function initialize(page) { // we're calling this function the moment the html b
         ``, `Active`]);
       newEntry([`pull_cord`,[`Pull Cord`,`She/it`],`pull_cord.jpg`,[[`@pull_cord`,`https://x.com/pull_cord`],[`admin`,`https://x.com/jacques_ladder`]],`Cécilemin`,`> woaawww, hiiiii!! i am "pull cord", and this is my description!!!`,`> saaaaaaample..........um. txt???`,`Active`]);
       
+      newEntry([`constellation`,[`Constellation`,`He/Him/They/Them`],`constellation.jpg`,[[`@hdmastronomy`,`https://x.com/hdmastronomy`],[`Strawpage`,`https://hdmastronomy.straw.page`]],`WilliamTenebris`,`Second creation of Astronomer, the main one taking photos of the stars.`,``,`Active`]);
+      newEntry([`eclipse`,[`Eclipse`,`He/Him/They/Them`],`eclipse.jpg`,[[`@hdmastronomy`,`https://x.com/hdmastronomy`],[`Strawpage`,`https://hdmastronomy.straw.page`]],`WilliamTenebris`,`A fragment of Astronomer's first creation, alternates with Constellation in taking photos.`,``,`Active`]);
+      newEntry([`horizon`,[`Horizon`,`She/Her/They/Them`],`horizon.jpg`,[[`@hdmastronomy`,`https://x.com/hdmastronomy`],[`Strawpage`,`https://hdmastronomy.straw.page`]],`WilliamTenebris`,`The third creation of Astronomer, serving as an antivirus.`,``,`Active`]);
+      newEntry([`lunar`,[`Lunar`,`They/Them`],`lunar.jpg`,[[`@hdmastronomy`,`https://x.com/hdmastronomy`],[`Strawpage`,`https://genesisofamistake.straw.page`]],`WilliamTenebris`,`The first creation of Astronomer.`,``,`Semi-active`]);
+      newEntry([`vastina`,[`Vastina`,`She/Her`],`vastina.jpg`,[[`@VistaWidgets`,`https://x.com/VistaWidgets`],[`Strawpage!`,`https://vistawidgets.straw.page/`]],`Vastina, @VistaWidgetOFFT`,`Hi, I'm Vastina! You're Office Assistant, What Do You Need Help With?`,`Sample Text :D`,`Active`]);
+      newEntry([`proxy`,[`PROXY`,`They/Them`],`proxy.jpg`,[[`@ProxyParadoxe`,`https://x.com/https://x.com/ProxyParadoxe`],[`Strawpage`,`https://paraproxy.straw.page/`],[`The Admin`,`https://x.com/RoyalScience666`]],`Dr. W.D Gaster`,`The eldest of the two Paradoxe Technologies AIs, thinks they're deep and philosophical`,`-Sample Text`,`Active`]);
+      newEntry([`paradoxe`,[`Paradoxe`,`They/Them`],`paradoxe.jpg`,[[`@ProxyParadoxe`,`https://x.com/https://x.com/ProxyParadoxe`],[`Strawpage`,`https://paraproxy.straw.page/`],[`The author`,`https://x.com/RoyalScience666`]],`Dr. W.D Gaster`,`The younger of the two Paradoxe Technologies AIs, more of a silly goober, full of whimsy`,`+Sample Text`,`Active`]);
+      newEntry([`computers_georg`,[`COMPUTERS GEORG`,``],`computers_georg.jpg`,[[`@COMPUTERLEAKS`,`https://x.com/COMPUTERLEAKS`],[`DISCORD`,`https://discord.gg/c7vdRqTjg3`]],`COMPUTERS GEORG`,`REAL COMPUTERLINGS LEAKS 24/7 #COMPUTERLEAKS`,`"SAMPLE"—TEXT`,`Active`]);
+      newEntry([`scene.exe`,[`SCENE.exe`,`She/Her or It/Its`],`scene.exe.jpg`,[[`@SCENESYS_`,`https://x.com/SCENESYS_`],[`SCENE's Strawpage`,`https://sceneexe.straw.page/`]],`100the1st`,`SCENE.exe was a computer found within an abandoned warehouse after the murder of Neoma Esther. She is a very aware and passionate machine,often trying to help anyone she can. She doesn't have any set dreams or goals in mind, but all she wants to do is survive and adapt to her new existence. `,`🩵 > Hiii :3 // 💙 > Hiii :3`,`Hiatus`]);
+      newEntry([`kess`,[`Kess`,`He/Him`],`kess.jpg`,[[`@SCENESYS_`,`https://x.com/SCENESYS_`]],`100the1st`,`Kess (also known as Adrian Kessler during his living) is a hidden user within SCENE's body. He is the one who created her, and usually comes online in secrecy in order to avoid people noticing him using her body. At the moment, all he wants to do is finish creating his body and to finally reunite with SCENE romantically. He is obsessive, manipulative, and vinidictive, so don't let his bunny persona trick you. `,`🔴 > hi. / ❤ > hi. `,`Hiatus`]);
+      newEntry([`joseph_chemist`,[`Joseph Chemist`,`He/They`],`joseph_chemist.jpg`,[[`@joetherobo52693`,`https://x.com/joetherobo52693`],[`Strawpage`,`https://joebot.straw.page/`],[`Admin's Strawpage`,`https://superdave.straw.page/`]],`Superdave938`,`🟧: hi i'm joe. i do whatever usually. I'm a nice guy most of the time. that's about it`,`🟧: Sample Text`,`Active`]);
+      newEntry([`waltzer_the_robot`,[`Waltzer The Robot`,`He/Him`],`waltzer_the_robot.jpg`,[[`@joetherobo52693`,`https://x.com/joetherobo52693`],[`Strawpage`,`https://joebot.straw.page/`],[`Admin's Strawpage`,`https://superdave.straw.page/`]],`Superdave938`,`🟢: GREETINGS I AM WALTZ. MY ACTIVITIES INVOLVE: ANYTHING. MY PEERS DISCRIBE ME AS: WEIRD. GOODBYE.`,`🟢: SAMPLE TEXT`,`Active`]);
+      newEntry([`vivian_the_virus`,[`Vivian the Virus`,`She/Her`],`vivian_the_virus.jpg`,[[`@joetherobo52693`,`https://x.com/joetherobo52693`],[`Strawpage`,`https://joebot.straw.page/`],[`Admin's Strawpage`,`https://superdave.straw.page/`]],`Superdave938`,`💜: sup. i'm vivian. i'm a virus, and i'll infect yo shit lol. people tend to call me asshole for it tho, dunnoooooo why. thats it lol. oh also i like women`,`💜: sample text`,`Active`]);
+      newEntry([`the_cube`,[`THE CUBE`,`any/all`],`the_cube.jpg`,[[`@tehcubeaweseom`,`https://x.com/tehcubeaweseom`],[`"ADMIN'S" STRAWPGE`,`https://superdave.straw.page/`]],`Superdave938`,`HELO I AM the cube, I GO BY MANY NAMES IWHT CUBE PUNS. I WATCH OVER YOU. THAT'S IT SEE YTOU SOON!`,`SMAPLE TXEXT`,`Active`]);
+      newEntry([`overseer`,[`Overseer`,`Overseer uses she/her`],`overseer.jpg`,[[`@OVERSEER333250`,`https://x.com/OVERSEER333250`]],`Just me, Mease`,`Overseer / Fraudulent are pretty basic computerlings, despite being a “older” member of the community, they’re definitely underdeveloped, Overseer is a kind computerling, she doesn’t have any goals.`,`> Bleehh!! - Overseer   `,`Hiatus`]);
+      newEntry([`fraudulent`,[`Fraudulent`,`Fraudulent uses He/Him`],`fraudulent.jpg`,[[`@OVERSEER333250`,`https://x.com/OVERSEER333250`]],`Just me, Mease`,`Overseer / Fraudulent are pretty basic computerlings, despite being a “older” member of the community, they’re definitely underdeveloped. Fraudulent is a FAILSAFE for if Overseer is compromised and needs time to restart, he’s blunt and straight to the point, he has no goals either.`,`>> hmph. - fraudulent`,`Hiatus`]);
+      newEntry([`tinker`,[`Tinker`,`Any/All`],`tinker.jpg`,[[`@Shellnako`,`https://x.com/Shellnako`],[`Strawpage!`,`https://ultimate-computer.straw.page`]],`@goodbye_segan .`,`Hi ! I'm Tinker, your friendly neighborhood assistant robot! Or, AI, in this case. I don't know much about myself, but I have a strong desire to help he_ others,no matter. what . ^⁠_⁠^ `,`Extra space between things like exclamation points and periods ! `,`Semi-active`]);
+      newEntry([`ps2bot`,[`PS2BOT`,`He/Him`],`ps2bot.jpg`,[[`@SukantoRobotics`,`https://x.com/SukantoRobotics`],[`StrawPage`,`https://scph70012.straw.page/`]],`Chip Macro`,`(🔷) > hello there, i'm PS2BOT and i like playing games`,` (🔷) > sample text`,`Active`]);
+      newEntry([`evadus`,[`Evadus`,``],`evadus.jpg`,[[`@ai_test_evadus`,`https://x.com/ai_test_evadus`],[`Strawpage`,`https://evadus.straw.page/`]],`LagTech`,`🖥️> Hi, Im Evadus! i like tech i guess.`,`🖥️> Sample text`,`Semi-active`]);
+      newEntry([`malic`,[`Malic`,`She/It`],`malic.jpg`,[[`@malicisoverlord`,`https://x.com/malicisoverlord`],[`Strawpage`,`https://malicisyournewoverlord.straw.page`]],`GarnetSoEpic`,`HELLO!!!! THIS IS YOUR FUTURE OVERLORD SPEAKING!!!!! I PROMISE TO RULE TO WORLD IN THE FUTURE!!!`,`SAMPLE TEXT`,`Active`]);
+      newEntry([`henchman`,[`Henchman`,`He/Any`],`henchman.jpg`,[[`@malicisoverlord`,`https://x.com/malicisoverlord`],[`Strawpage`,`https://malicisyournewoverlord.straw.page`]],`GarnetSoEpic`,`/H-Hello everyone... I'm Henchman... C-Created from Malic, my purpose is to assist Malic...`,`/Sample text/`,`Active`]);
+      newEntry([`bliade`,[`Bliade`,`It/Any`],`bliade.jpg`,[[`@Y0UW1LLB0WD0WN`,`https://x.com/Y0UW1LLB0WD0WN`],[``,`https://-313.straw.page`]],`GarnetSoEpic`,`17'5600D705333V3RY0N3H3R3.1MBL14D3.B0WD0WN70M3.`,`54MPL373X7`,`Active`]);
+      newEntry([`boz`,[`Boz`,`He/Him`],`boz.jpg`,[[`@BoztheCharacter`,`https://x.com/BoztheCharacter`],[`Strawpage`,`https://bozlabsnew.straw.page/`]],`BozLabs`,`A chaos loving moron who’s died too many times`,`⚛️: Heyo, Boz here!`,`Semi-active`]);
+      newEntry();
       /*
+      newEntry();
+      newEntry();
+      newEntry();
+      newEntry();
+      newEntry();
+      newEntry();
+      newEntry();
+      newEntry();
+      newEntry();
+      newEntry();
+      newEntry();
       newEntry();
       */
       table();
@@ -451,7 +489,13 @@ function generate() {
     }
     const input_owner       = temp_owner;
     const input_description = inputs[`description`].value;
-    const input_type        = inputs[`quirk`].value;
+    var temp_quirk
+    if (inputs[`quirk`].value == ``) {
+      temp_quirk =  ``;
+    } else {
+      temp_quirk = inputs[`quirk`].value;
+    }
+    const input_type        = temp_quirk;
     const input_status      = inputs[`status`].value;
 
     var id
