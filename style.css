@@ -60,6 +60,7 @@ h1, h2, h3, p, .returnbtn{
   gap:15px;
   display:grid;
   place-items:center;
+  min-width: 300px;
 }
 .petitions > form {
   width: var(--p_width);
