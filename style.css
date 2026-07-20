@@ -1,8 +1,8 @@
 @font-face {
     font-family : "VCR OSD Mono";
-    src         : url(/computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.ttf) format("truetype");
-    src         : url(/computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.otf) format("opentype");
-    src         : url(/computerlingsdb/assets/fonts/VCR_OSD_MONO_1.001.woff2) format("woff2");
+    src         : url(./assets/fonts/VCR_OSD_MONO_1.001.ttf) format("truetype");
+    src         : url(./assets/fonts/VCR_OSD_MONO_1.001.otf) format("opentype");
+    src         : url(./assets/fonts/VCR_OSD_MONO_1.001.woff2) format("woff2");
     font-weight : normal;
 }
    
@@ -98,6 +98,10 @@ form {
   align-items: stretch;
 }
 form > h3 {
+  text-align: center;
+  font-size: 3vh;
+}
+.input_container > h3 {
   text-align: center;
   font-size: 3vh;
 }

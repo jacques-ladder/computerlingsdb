@@ -1,5 +1,5 @@
 // ***IMPORTANT***: 
-// specify root folder as /computerlingsdb/
+// specify root folder as ./
 const root      = document.querySelector(":root")
 
 const db        = document.getElementById("db");
@@ -43,7 +43,6 @@ function mobile_check() {
   }
   return check;
 }
-console.log()
 function mobile() {
   root.style.setProperty("--font-size-all", "clamp(0.5rem, 1vw, 1rem)");
   root.style.setProperty("--font-size_td", "clamp(0.5rem, 1vw, 1rem)");
@@ -90,9 +89,9 @@ if (exists(search_machine)) { // i should just make this a function too
     true_height += extracted_value;
   }
   true_height += "px";
-  console.log(true_height)
+  //console.log(true_height)
   root.style.setProperty("--search_bar_height", true_height)
-  console.log(root.style.getPropertyValue("--search_bar_height"))
+  //console.log(root.style.getPropertyValue("--search_bar_height"))
 }
 
 const fields    = [
@@ -155,7 +154,6 @@ function center() {
       star_of_the_show = [db, "--db_width", 0.7, 0.9]
       break;
     case ("petition"):
-      console.log()
       star_of_the_show = [petition_form, "--p_width", 0.5, 0.9]
       break;
   }
@@ -194,7 +192,7 @@ function table() {
           ELEMENT           = document.createElement("div");
           ELEMENT.classList.add("photo");
             ELEMENT2           = document.createElement("img");
-            ELEMENT2.src       = "/computerlingsdb/assets/photos/" + data;
+            ELEMENT2.src       = "./assets/photos/" + data;
             ELEMENT2.classList.add("photo");
           ELEMENT.appendChild(ELEMENT2);
           break;
@@ -203,7 +201,6 @@ function table() {
           ELEMENT           = document.createElement("div");
           ELEMENT.classList.add("names");
             ELEMENT2           = document.createElement("label");
-            console.log(ELEMENT2)
             ELEMENT2.innerHTML = data[0];
             ELEMENT.appendChild(ELEMENT2);
             if (exists(data[1])) {
@@ -383,6 +380,18 @@ function generate() {
     inputs[`quirk`]                         = document.querySelector(`#quirk`);
     inputs[`status`]                        = document.querySelector(`#status`);
 
+
+    required_entires = [inputs[`name`], inputs[`links`][`account`], inputs[`owner`]];
+    
+    for (i = 0; i < required_entires.length; i++) {
+      if (exists(required_entires[i].value)) {
+        // do nothing
+      } else {
+        alert(required_entires[i].name + " is required!")
+        return false;
+      }
+    }
+
     const input_name      = inputs[`name`].value;
     const input_pronouns  = inputs[`pronouns`].value;
     if (inputs[`links`][`account`].value.charAt(0) == `@`) {
@@ -405,13 +414,10 @@ function generate() {
         input_links.push(processed_array_link)
       }
     }
-    console.log(input_links)
     const input_owner       = inputs[`owner`].value;
     const input_description = inputs[`description`].value;
     const input_type        = inputs[`quirk`].value;
     const input_status      = inputs[`status`].value;
-
-    console.log(inputs)
 
     var id
     var name
@@ -423,13 +429,6 @@ function generate() {
     var description
     var type
     var status
-
-    required_entires = [input_name, input_account, input_owner, input_status];
-    
-
-    for (i = 0; i < required_entires.length; i++) {
-      console.log(required_entires[i])
-    }
 
     id          = '`' + internal_case(input_name) + '`'
     name        = '`' + input_name + '`';
@@ -458,7 +457,7 @@ if (exists(document.getElementById(c_button))) {
     document.querySelector("#dump").select();
     document.execCommand("copy");
     
-    cecileQuickChange(c_button, "ENTRY KEY COPIED!", null);
+    cecileQuickChange(c_button, "ENTRY CODE COPIED!", null);
     setTimeout(() => {
       cecileQuickChange(c_button, "COPY TO CLIPBOARD", null)
     }, 2500)

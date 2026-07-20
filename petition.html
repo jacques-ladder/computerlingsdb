@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Addition Petition</title>
-    <link href="/computerlingsdb/style.css" rel="stylesheet" type="text/css" media="all">
+    <link href="style.css" rel="stylesheet" type="text/css" media="all">
     <link rel="icon" type="image/x-icon" href="assets/logo/logo.png?v=2">
   </head>
     <header>
@@ -24,10 +24,11 @@
   <body onload="initialize('petition')">
     <section class="petitions" id="hide">
         <form>
-          <h3>YOUR ENTRY KEY</h3>
+          <h3>YOUR ENTRY CODE</h3>
           <div class="input_container">
             <textarea class=key id="dump" readonly wrap="hard"></textarea>
             <button id="copy_entry_key">COPY TO CLIPBOARD</button>
+            <h4>DO NOT EDIT THIS CODE</h4>
           </div>
         </form>
     </section>
@@ -38,20 +39,20 @@
         <article>
           <label>To petition for your entry:</label>
           <ol>
-            <li>Fill out this form to generate an "entry key" (a code that our database can read to make a new entry).</li>
+            <li>Fill out this form to generate an "entry code" (it will appear at the top of this page).</li>
             <li>Copy that code.</li>
             <li>Join our Discord, "Céclings" <a>[JOIN HERE]</a>.</li>
             <li>Go to #petitions.</li>
             <li>Send a message that includes your code AND an image of your computerling.</li>
           </ol>
-          <span class="little_text">You can petition for as many of your characters as you want! Just copy and save keys for each!</span>
+          <span class="little_text">You can petition for as many of your characters as you want! Just copy and save the codes for each!</span>
           <p></p>
           <span class="little_text required2"> = Required</span>
         </article>
         <p></p>
         <article class="input_container">
         <label for="name" class="required">Name of Computerling:</label>
-        <input size="50" type="text" id="name" name="name" placeholder="Lemon" required>
+        <input size="50" type="text" id="name" name="name" placeholder="Lemon">
         </article>
         <p></p>
         <article class="input_container">
@@ -75,7 +76,7 @@
           </ul>
           For the 2 optional links, put the website name on the left and https:// link on the right.<br><br>This would be a good place to add a link the author's account.
         </span>
-        <input type="text" id="account" name="account" placeholder="@LEMONSYSEXE" required>
+        <input type="text" id="account" name="account" placeholder="@LEMONSYSEXE">
         <div class="twin_inputs">
           <input type="text" id="link2_name" name="link2_name" class="name" placeholder="My strawpage!">
           <input type="text" id="link2_address" name="link2_address" class="hyperlink" placeholder="https://lemondotexe.straw.page">
@@ -87,9 +88,9 @@
         </article>
         <p></p>
         <article class="input_container">
-        <label for="owner">Name of Owner(s) (YOURS!): </label>
+        <label for="owner" class="required">Name of Owner(s):</label>
         <span class="little_text">Use your main username.<br><br>Leave blank for anonymous.</span>
-        <input type="text" id="owner" name="owner" placeholder="PauIndeed, Xx_EpicPlaceholder_xX, ..." required>
+        <input type="text" id="owner" name="owner" placeholder="PauIndeed, Xx_EpicPlaceholder_xX, ...">
         </article>
         <p></p>
         <article class="input_container">
@@ -100,7 +101,7 @@
         <p></p>
         <article class="input_container">
         <label for="status" class="required">Status:</label>
-        <select id="status" name="status" required>
+        <select id="status" name="status">
             <option value="Active">Active</option>
             <option value="Semi-active">Semi-Active</option>
             <option value="Hiatus">In Hiatus</option>
@@ -112,5 +113,5 @@
       </form>
     </section>
   </body>
-  <script src="/computerlingsdb/db.js"></script>
+  <script src="db.js"></script>
 </html>
