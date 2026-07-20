@@ -8,7 +8,7 @@
    
 :root {
   --db_width            : 100px;
-  --p_width             : 100px;
+  --p_width             : 400px;
   --standard_image_size : calc(var(--db_width) * 0.125);
   --standard_padding    : 8px;
   --blue                : #7cbde9;
