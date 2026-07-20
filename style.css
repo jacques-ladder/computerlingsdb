@@ -25,6 +25,7 @@
   --search_bar_height   : 58px;
   --border              : 1px solid #000;
   --border_db           : 1px solid #000;
+  --form_padding        : 40px;
 }
 * {
   font-family: "VCR OSD Mono","Segoe UI",system-ui;
@@ -79,10 +80,7 @@ form {
   display: flex;
   flex-direction:column;
   border: var(--border);
-  padding-top: 40px;
-  padding-left: 40px;
-  padding-right: 40px;
-  padding-bottom: 40px;
+  padding: var(--form_padding);
   border-radius: 10px;
   background-color:#c4dbeb;
 }
@@ -101,12 +99,17 @@ form > h3 {
   text-align: center;
   font-size: 3vh;
 }
+article.input_container > label {
+  font-size: clamp(0.8rem, 2vw, 1.5rem);
+  font-weight: bold;
+  margin-bottom: 1vh;
+}
 .input_container > h3 {
   text-align: center;
   font-size: 3vh;
 }
 .little_text { /* Little text that describes what to input under each field in the Petitions Form.*/
-  font-size: clamp(0.4rem, 1.25vh, 1rem);
+  font-size: clamp(0.4rem, 1vw, 1rem);
   font-weight: normal;
   word-wrap: normal;
   margin-block-start: 0px;

@@ -11,10 +11,10 @@ const BANNER    = document.querySelector(".navbar");
 const petition_form = document.querySelector("#petition_form")
 
 const illegal_keys = [
-  ["`", null], // quotes and apostrophes are allowed in all inputs, because we use this key to make their inputs strings.
-  ["(", "pronouns"],
-  [")", "pronouns"]
-]
+  ["`", [null]], // quotes and apostrophes are allowed in all inputs, because we use this key to make their inputs strings.
+  ["(", ["pronouns","account","link2_address","link3_address"]],
+  [")", ["pronouns","account","link2_address","link3_address"]]
+];
 
 const msg_link = "(Link to account)";
 const standard_image_size = "200px";
@@ -47,6 +47,7 @@ function mobile() {
   root.style.setProperty("--font-size-all", "clamp(0.5rem, 1vw, 1rem)");
   root.style.setProperty("--font-size_td", "clamp(0.5rem, 1vw, 1rem)");
   root.style.setProperty("--font-size-link", "clamp(0.5rem, 1vw, 1rem)");
+  root.style.setProperty("--form_padding", "10px");
   if (exists(db)) {
     db.style.setProperty("margin-top", "0px");
     db.style.setProperty("min-width", "0");
@@ -286,10 +287,12 @@ function table() {
 function illegal_characters_handler(event) {
   const prompt = event.target
   for (key of illegal_keys) {
+    let blacklist = key[1];
     if (event.key == key[0]) {
-      if (key[1] === null || prompt.name == key[1]) {
-        var input = prompt.value
-        event.preventDefault(); // stops key event before it can write to the input
+      for (i = 0; i < blacklist.length; i++) {
+        if (blacklist[i] === null || prompt.name == blacklist[i]) {
+          event.preventDefault();
+        }
       }
     }
   }
@@ -331,7 +334,7 @@ function initialize(page) { // we're calling this function the moment the html b
       newEntry([`hydrangea` , [`Hydrangea`] , `hydrangea.jpg` , [[`@solstice_labs`, `https://x.com/solstice_labs` ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
         `Abandoned machinery inside of Solstice Laboratories. I used to be something in the past.`,
         ``, `Active`]);
-      newEntry([`pull_cord`,[`Pull Cord`,`(She/It)`],`pull_cord.jpg`,[[`@pull_cord`,`https://x.com/pull_cord`]],`Cécilemin`,`PULL. CORD. PULL. CORD`,`> saaaaaample,,,, um. text??`,`Active`]);
+      newEntry([`pull_cord`,[`Pull Cord`,`She/it`],`pull_cord.jpg`,[[`@pull_cord`,`https://x.com/pull_cord`],[`my FAVORITE website...`,`https://www.pictureofhotdog.com/`]],`Cécilemin`,`"`,`>> saaaaample,,,,,um. txt?`,`Active`]);
       
       /*
       newEntry();
@@ -387,7 +390,7 @@ function generate() {
       if (exists(required_entires[i].value)) {
         // do nothing
       } else {
-        alert(required_entires[i].name + " is required!")
+        alert("ERROR: " + required_entires[i].name + " is a required field!")
         return false;
       }
     }
@@ -403,6 +406,7 @@ function generate() {
     const input_account = [`@` + temp_handle, `https://x.com/` + temp_handle]
     const input_link2   = [inputs[`links`][`link2`][`name`].value, inputs[`links`][`link2`][`address`].value]
     const input_link3   = [inputs[`links`][`link3`][`name`].value, inputs[`links`][`link3`][`address`].value]
+
     let input_links = []
     temp_links = [input_account, input_link2, input_link3]
     for (array_link of temp_links) {
