@@ -334,7 +334,7 @@ function initialize(page) { // we're calling this function the moment the html b
       newEntry([`hydrangea` , [`Hydrangea`] , `hydrangea.jpg` , [[`@solstice_labs`, `https://x.com/solstice_labs` ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
         `Abandoned machinery inside of Solstice Laboratories. I used to be something in the past.`,
         ``, `Active`]);
-      newEntry([`pull_cord`,[`Pull Cord`,`She/it`],`pull_cord.jpg`,[[`@pull_cord`,`https://x.com/pull_cord`],[`my FAVORITE website...`,`https://www.pictureofhotdog.com/`]],`Cécilemin`,`"`,`>> saaaaample,,,,,um. txt?`,`Active`]);
+      newEntry([`pull_cord`,[`Pull Cord`,`She/it`],`pull_cord.jpg`,[[`@pull_cord`,`https://x.com/pull_cord`],[`my FAVORITE website...`,`https://www.pictureofhotdog.com/`]],`Cécilemin`,``,`>> saaaaample,,,,,um. txt?`,`Active`]);
       
       /*
       newEntry();
