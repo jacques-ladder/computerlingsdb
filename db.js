@@ -285,7 +285,7 @@ function table() {
   rows() // after all entries are built, script will handle logic related to all rows
 }
 function illegal_characters_handler(event) {
-  const prompt = event.target
+  let prompt = event.target
   for (key of illegal_keys) {
     let blacklist = key[1];
     if (event.key == key[0]) {
@@ -297,6 +297,31 @@ function illegal_characters_handler(event) {
     }
   }
 }
+/*
+function illegal_paste_handler(event) {
+  let prompt = event.target
+  let pasted = (event.clipboardData || window.clipboardData).getData(`text`)
+  for (key of illegal_keys) {
+    let blacklist = key[1];
+    for (x = 0; x < pasted.length; x++) {
+      if (pasted[x] == key[0]) {
+        for (input of blacklist) {
+          if (input === prompt.name || input === null) {
+            pasted = pasted.replaceAll(key[0], "")
+            const selection = window.getSelection();
+            if (!selection.rangeCount) return;
+            selection.deleteFromDocument();
+            selection.getRangeAt(0).insertNode(document.createTextNode(pasted));
+            selection.collapseToEnd();
+            event.preventDefault();
+            return;
+          }
+        }
+      }
+    }
+  }
+}
+  */
 function initializeInputs() {
   const input_prompts = document.getElementsByTagName("input")
   for (i = 0; i< input_prompts.length; i++) {
