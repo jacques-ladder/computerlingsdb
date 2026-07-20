@@ -359,7 +359,7 @@ function initialize(page) { // we're calling this function the moment the html b
       newEntry([`hydrangea` , [`Hydrangea`] , `hydrangea.jpg` , [[`@solstice_labs`, `https://x.com/solstice_labs` ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
         `Abandoned machinery inside of Solstice Laboratories. I used to be something in the past.`,
         ``, `Active`]);
-      newEntry([`pull_cord`,[`Pull Cord`,`She/it`],`pull_cord.jpg`,[[`@pull_cord`,`https://x.com/pull_cord`],[`my FAVORITE website...`,`https://www.pictureofhotdog.com/`]],`Cécilemin`,``,`>> saaaaample,,,,,um. txt?`,`Active`]);
+      newEntry([`pull_cord`,[`Pull Cord`,`She/it`],`pull_cord.jpg`,[[`@pull_cord`,`https://x.com/pull_cord`],[`admin`,`https://x.com/jacques_ladder`]],`Cécilemin`,`> woaawww, hiiiii!! i am "pull cord", and this is my description!!!`,`> saaaaaaample..........um. txt???`,`Active`]);
       
       /*
       newEntry();
@@ -409,7 +409,7 @@ function generate() {
     inputs[`status`]                        = document.querySelector(`#status`);
 
 
-    required_entires = [inputs[`name`], inputs[`links`][`account`], inputs[`owner`]];
+    required_entires = [inputs[`name`], inputs[`links`][`account`]];
     
     for (i = 0; i < required_entires.length; i++) {
       if (exists(required_entires[i].value)) {
@@ -443,7 +443,13 @@ function generate() {
         input_links.push(processed_array_link)
       }
     }
-    const input_owner       = inputs[`owner`].value;
+    var temp_owner
+    if (inputs[`owner`].value == "") {
+      temp_owner = "(anonymous)";
+    } else {
+      temp_owner = inputs[`owner`].value;
+    }
+    const input_owner       = temp_owner;
     const input_description = inputs[`description`].value;
     const input_type        = inputs[`quirk`].value;
     const input_status      = inputs[`status`].value;
