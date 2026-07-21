@@ -27,20 +27,32 @@ const search_bar = document.querySelector("#search");
 let pageDependancy;
 // since this script is active on all pages, this variable keeps track of the current page.
 // we use this variable in switch cases. - ceci
-function test() {
+function fun() {
   let output = document.querySelector("#output");
+  let category = document.querySelector("#randomizer_category").value;
+
   var selection = [];
   var random
   for (entry in registry) {
     selection.push(registry[entry]["id"]);
   }
+  console.log(selection[22])
   random = randarr(selection)
-  output.value = selection[random];
+  var offset = 1;
+  if (random + offset > selection.length) {
+    offset = -1;
+  }
+  if (output.value = selection[random]) {
+    output.value = selection[random + offset];
+  } else {
+    output.value = selection[random];
+  }
 }
 function randarr(arr) {
   var random = Math.floor(Math.random() * arr.length)
   return random
 }
+
 function exists(data) {
   if (data == "" || data === null || data === undefined) {
     return false;
