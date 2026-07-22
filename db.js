@@ -365,25 +365,25 @@ function initializeInputs() {
 function initialize(page) { // we're calling this function the moment the html body loads.
   // newEntry(id, image, name, owner, [[accountHandle, accountLink], typing)
   pageDependancy = page;
-  newEntry([`lemon`     , [`Lemon`, `(He/him)`]     , `lemon.jpg`     , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`,
+  newEntry([`lemon`     , [`Lemon`, `(He/Him)`]     , `lemon.jpg`     , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`,
     `🟡: Hiiii im lemon and i like being friends with anybody!! I try to be as friendly as possible :D`,
     `🟡> example`, `Active`]);
-  newEntry([`lime`      , [`Lime`, `(He/him)`]      , `lime.jpg`      , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
+  newEntry([`lime`      , [`Lime`, `(He/Him)`]      , `lime.jpg`      , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
     `🟢: My name is Lime.. I might be a bit cold, though I'm tryna change my ways.. uh... yeah...!!`,
     `🟢> example`, `Active`]);
-  newEntry([`neroli`    , [`Neroli`, `(He/they/it)`]    , `neroli.jpg`    , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
+  newEntry([`neroli`    , [`Neroli`, `(He/They/It)`]    , `neroli.jpg`    , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
     `🐟: Neroli here... uhm.. just some dude roaming around. Not much more... Uh.... i like fish`,
     `🐟> example`, `Active`]);
-  newEntry([`stardust`  , [`Stardust`, `(He/him)`]  , `stardust.jpg`  , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
+  newEntry([`stardust`  , [`Stardust`, `(He/Him)`]  , `stardust.jpg`  , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
     `⭐: Stardust. Creator, and parent of Lemon, Lime, Flora... I used to be a human back in the day.`,
     `⭐️> example`, `Active`]);
-  newEntry([`lovedeath` , [`Lovedeath`, `(He/they)`] , `lovedeath.jpg` , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
+  newEntry([`lovedeath` , [`Lovedeath`, `(He/Him/They)`] , `lovedeath.jpg` , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
     `💜: Heyyy!! I'm Lovedeath X] The COOLER of them all!!! Yeah!!! >:]`,
     `💜> example`, `Active`]);
-  newEntry([`flora`     , [`Flora`, `(She/her)`]     , `flora.jpg`     , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
+  newEntry([`flora`     , [`Flora`, `(She/Her)`]     , `flora.jpg`     , [[`@LEMONSYSEXE`  , `https://x.com/LEMONSYSEXE`   ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
     `🌻: I am Flora... I'm always glad to meet anybody inside of this platform! But don't be a bloody dick to me, will you.`,
     `🌻> example`, `Active`]);
-  newEntry([`hydrangea` , [`Hydrangea`] , `hydrangea.jpg` , [[`@solstice_labs`, `https://x.com/solstice_labs` ], [`Strawpage`, `https://lemondotexe.straw.page`]], `PauIndeed`  ,
+  newEntry([`hydrangea` , [`Hydrangea`, 'She/Her'] , `hydrangea.jpg` , [[`@solstice_labs`, `https://x.com/solstice_labs` ], [`Strawpage`, `https://solsticelabs.straw.page`]], `PauIndeed`  ,
 `Abandoned machinery inside of Solstice Laboratories. I used to be something in the past.`,
     ``, `Active`]);
   newEntry([`pull_cord`,[`Pull Cord`,`She/it`],`pull_cord.jpg`,[[`@pull_cord`,`https://x.com/pull_cord`],[`admin`,`https://x.com/jacques_ladder`]],`Cécilemin`,`> woaawww, hiiiii!! i am "pull cord", and this is my description!!!`,`> saaaaaaample..........um. txt???`,`Active`]);
@@ -425,6 +425,7 @@ function initialize(page) { // we're calling this function the moment the html b
   newEntry(['shelly',['Shelly','She/her'],'shelly.jpg',[['@NekoShelly','https://x.com/NekoShelly'],['Strawpage','https://nekoshelly.straw.page/']],'(anonymous)','"Hii! I’m Shelly. I’m a robot who likes drawing and being creative" :3','"I don’t have my name written before the quotation marks. Oh, I also like to add emoticons or kaomojis at the end!" (˶˃ ᵕ ˂˶) .ᐟ.ᐟ','Semi-active']);
   newEntry(['willow',['Willow','He/him'],'willow.jpg',[['@NekoShelly','https://x.com/NekoShelly'],['Strawpage','https://nekoshelly.straw.page/']],'Shelly','Willow: "Hello. My name is Willow and I am a sentient computer, obviously..."','Willow: "I have my name before the quotation marks, I often use ellipsis and I usually speak in a fancy way..."','Active']);
   newEntry(['spec_(blue_text)',['Spec (Blue Text)','He/Him'],'spec_(blue_text).jpg',[['@BoztheCharacter','https://x.com/BoztheCharacter'],['Strawpage','https://bozlabsnew.straw.page/']],'BozLabs','The former admin of the Boz account turned character. Has control over the world that Boz resides in.','*️⃣: Hello… I’m not really a typical computerling… I probably shouldn’t even be here…','Semi-active']);
+  newEntry(['renamed',['RENAMED','He/him'],'renamed.jpg',[['@UNTITLED366039','https://x.com/UNTITLED366039'],['[STRAWPAGE]','https://filenotfoun.straw.page']],'[Alexander.]','🔳: H E LL O. MY N AM E IS [RENAMED]','🔳>> T HE [QUICK] B RO WN  F OX [JUMPS] O VE R  T HE [LAZY] D OG','Active']);
   switch (page) {
     case "database":
       table();
