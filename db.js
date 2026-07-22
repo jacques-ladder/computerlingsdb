@@ -661,12 +661,23 @@ function search() {
 }
 if (exists(search_bar)) {
   window.addEventListener("keydown", (event) => {
-    search_bar.focus()
-    if (event.key == "Enter") {
-      search()
-    }
-    if (event.key == "`") {
-      return false;
+    let active = document.activeElement
+    console.log(event.key)
+    if (active.tagName != "TEXTAREA") {
+      switch (event.key) {
+        case ("Enter"):
+          search();
+          break;
+        case ("Control"):
+        case ("Shift"):
+        case ("Alt"):
+        case ("Backspace"):
+          // do nothing
+          break;
+        default:
+          search_bar.focus();
+          break;
+      }
     }
   })
 }
