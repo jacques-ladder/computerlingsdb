@@ -322,12 +322,13 @@ input.search_bar {
   max-width: var(--db_width);
 }
 #db {
-  margin-top: 4vh;
-  width: var(--db_width);
-  margin      :10px;
-  min-width: 500px;
-  border-collapse: separate;
-  border-spacing: 0px;
+  margin-top      : 4vh;
+  width           : var(--db_width);
+  max-width       : 1200px;
+  margin          : 10px;
+  min-width       : 500px;
+  border-collapse : separate;
+  border-spacing  : 0px;
 }
 #db thead td {
   border-top     : var(--border_db);
@@ -378,10 +379,9 @@ td.photo {
 }
 td.name {
   max-width   : var(--one-cell);
-  width       : var(--one-cell);
   padding: 0;
   align-items: center;
-  padding     : var(--standard_padding);
+  padding     : var(--standard_padding) calc(var(--standard_padding) * 0.5);
 }
 .names {
   display: flex;
@@ -393,7 +393,7 @@ td.name {
   border: var(--border)
 }
 .names > span {
-  font-size: calc(var(--font-size_td) * 0.80)
+  font-size: calc(var(--font-size_td) * 0.75)
 }
 div.names > label {
   overflow-x : scroll;
@@ -466,6 +466,7 @@ td.description > div {
   box-sizing  : border-box;
   padding: 0.5vw;
   width       : 100%;
+  min-width   : var(--two-cell);
   height      : var(--standard_image_size);
 }
 td.description div textarea {
@@ -488,11 +489,11 @@ td.description div textarea {
 }
 td.status {
   padding     : var(--standard_padding);
-  max-width   : 150px;
+  max-width   : 5%;
+  width   : 5%;
   word-wrap   : normal;
   text-align  : center;
   max-width   : var(--one-cell);
-  width       : var(--one-cell);
 }
 td.INVALID {
   padding     : var(--standard_padding);
@@ -539,7 +540,7 @@ td.INVALID {
   flex-direction: row;
 }
 .name {
-  width: 25%;
+  width: 15%;
 }
 .hyperlink {
   width: 75%;
