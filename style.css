@@ -20,7 +20,7 @@
   --two-cell            : calc(var(--db_width) * 0.2);
   --font-size-all       : clamp(0.4rem, 1vw, 1rem);
   --font-size_td        : clamp(0.4rem, 1vw, 1rem);
-  --font-size-link      : clamp(0.4rem, 0.8vw, 1rem);
+  --font-size-link      : clamp(0.1rem, 0.8vw, 1rem);
   --font-size-search    : 0.95rem;
   --search_bar_height   : 58px;
   --border              : 1px solid #000;
@@ -342,8 +342,8 @@ input.search_bar {
   border-bottom: var(--border_db);
   border-right: var(--border_db);
 }
-#db tbody td div {
-  max-height: var(--standard_image_size)
+td > div {
+  max-height: var(--standard_image_size);
 }
 #db td:first-child, #db thead:first-child {
   border-left: var(--border_db);
@@ -374,7 +374,7 @@ img.photo {
 td.photo {
   padding     : 0;
   max-width   : var(--standard_image_size);
-  max-height: var(--standard_image_size);
+  max-height  : var(--standard_image_size);
   width       : var(--standard_image_size);
 }
 td.name {
@@ -409,17 +409,19 @@ td.account {
   padding     : var(--standard_padding);
   max-width   : var(--one-cell);
   width       : var(--one-cell);
+  box-sizing: border-box;
 }
 .links > a{
   background-color: var(--blue);
   color:black;
-  border-radius: 10px;
+  border-radius: 5px;
   border: 1px solid;
   padding: 12%;
   text-decoration: none;
   text-align: center;
   font-size: var(--font-size-link);
   overflow: hidden;
+  white-space: nowrap;
 }
 .links > a:hover{
   color:white;
@@ -430,6 +432,7 @@ td.account {
 .links {
   display: flex;
   flex-direction: column;
+  box-sizing: border-box;
 }
 
 td.typing {
@@ -490,10 +493,9 @@ td.description div textarea {
 td.status {
   padding     : var(--standard_padding);
   max-width   : 5%;
-  width   : 5%;
+  width       : 5%;
   word-wrap   : normal;
   text-align  : center;
-  max-width   : var(--one-cell);
 }
 td.INVALID {
   padding     : var(--standard_padding);

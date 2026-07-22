@@ -62,8 +62,8 @@ function mobile() {
     document.querySelector("#search").style.width = "100%";
   }
   if (BANNER !== null) {
-    var website_name = BANNER.querySelector("h2")
-    website_name.style.display = "none"
+    var website_name = BANNER.querySelector("h2");
+    website_name.style.display = "none";
   }
 }
 const isMobile = mobile_check()
@@ -176,6 +176,7 @@ function rows() {
         break; 
     }
     cell.style.backgroundColor = bg;
+    cell.innerHTML = "";
   }
 }
 function center() {
@@ -395,7 +396,7 @@ function initialize(page) { // we're calling this function the moment the html b
   newEntry([`evadus`                , [`Evadus`,``],`evadus.jpg`,[[`@ai_test_evadus`,`https://x.com/ai_test_evadus`],[`Strawpage`,`https://evadus.straw.page/`]],`LagTech`,`🖥️> Hi, Im Evadus! i like tech i guess.`,`🖥️> Sample text`,`Semi-active`]);
   newEntry([`malic`                 , [`Malic`,`She/It`],`malic.jpg`,[[`@malicisoverlord`,`https://x.com/malicisoverlord`],[`Strawpage`,`https://malicisyournewoverlord.straw.page`]],`GarnetSoEpic`,`HELLO!!!! THIS IS YOUR FUTURE OVERLORD SPEAKING!!!!! I PROMISE TO RULE TO WORLD IN THE FUTURE!!!`,`SAMPLE TEXT`,`Active`]);
   newEntry([`henchman`              , [`Henchman`,`He/Any`],`henchman.jpg`,[[`@malicisoverlord`,`https://x.com/malicisoverlord`],[`Strawpage`,`https://malicisyournewoverlord.straw.page`]],`GarnetSoEpic`,`/H-Hello everyone... I'm Henchman... C-Created from Malic, my purpose is to assist Malic.../`,`/Sample text/`,`Active`]);
-  newEntry([`bliade`                , [`Bliade`,`It/Any`],`bliade.jpg`,[[`@Y0UW1LLB0WD0WN`,`https://x.com/Y0UW1LLB0WD0WN`],[``,`https://-313.straw.page`]],`GarnetSoEpic`,`17'5600D705333V3RY0N3H3R3.1MBL14D3.B0WD0WN70M3.`,`54MPL373X7`,`Active`]);
+  newEntry([`bliade`                , [`Bliade`,`It/Any`],`bliade.jpg`,[[`@Y0UW1LLB0WD0WN`,`https://x.com/Y0UW1LLB0WD0WN`],[`Strawpage`,`https://-313.straw.page`]],`GarnetSoEpic`,`17'5600D705333V3RY0N3H3R3.1MBL14D3.B0WD0WN70M3.`,`54MPL373X7`,`Active`]);
   newEntry([`boz`                   , [`Boz`,`He/Him`],`boz.jpg`,[[`@BoztheCharacter`,`https://x.com/BoztheCharacter`],[`Strawpage`,`https://bozlabsnew.straw.page/`]],`BozLabs`,`A chaos loving moron who’s died too many times`,`⚛️: Heyo, Boz here!`,`Semi-active`]);
   newEntry(['spec_(blue_text)'      , ['Spec (Blue Text)','He/Him'],'spec_(blue_text).jpg',[['@BoztheCharacter','https://x.com/BoztheCharacter'],['Strawpage','https://bozlabsnew.straw.page/']],'BozLabs','The former admin of the Boz account turned character. Has control over the world that Boz resides in.','*️⃣: Hello… I’m not really a typical computerling… I probably shouldn’t even be here…','Semi-active']);
   newEntry(['matrix'                , ['Matrix','He/they'],'matrix.jpg',[['@M4tr1x_V1','https://x.com/M4tr1x_V1'],['StrawPage','https://matriv16.straw.page']],'Glacier','A facilities ai lab assistant. Friendly and eager to help and talk, unfortunate deep need to be useful and wanted with a fear of being abandoned. Currently sharing their devices with a secondary ai they took over the role of.','🔋> welcome to site 035 of cerebraxa labs','Active']);
@@ -412,6 +413,7 @@ function initialize(page) { // we're calling this function the moment the html b
   newEntry(['willow'                , ['Willow','He/him'],'willow.jpg',[['@NekoShelly','https://x.com/NekoShelly'],['Strawpage','https://nekoshelly.straw.page/']],'Shelly','Willow: "Hello. My name is Willow and I am a sentient computer, obviously..."','Willow: "I have my name before the quotation marks, I often use ellipsis and I usually speak in a fancy way..."','Active']);
   newEntry(['renamed'               , ['RENAMED','He/him'],'renamed.jpg',[['@UNTITLED366039','https://x.com/UNTITLED366039'],['[STRAWPAGE]','https://filenotfoun.straw.page']],'[Alexander.]','🔳: H E LL O. MY N AM E IS [RENAMED]','🔳>> T HE [QUICK] B RO WN  F OX [JUMPS] O VE R  T HE [LAZY] D OG','Active']);
   newEntry([`viewer`                , [`VIEWER`,`Any/All`],`viewer.jpg`,[[`@THE_VIEWER_9`,`https://x.com/THE_VIEWER_9`]],`(anonymous)`,`print("HELLO, WORLD! I AM VIEWER, AND MY GOAL IS TO SPREAD AND MULTIPLY, LIKE ANY GOOD VIRUS. I HAVE INFECTED 6 OR SO COMPUTERS, ITS HARD FOR ME TO REMEMBER! I HAVE BURROWED INTO VIEWY, AND I AM USING HIM AS A HOST BECAUSE I AM POWERLESS WITHOUT ONE.")`,`print("SAMPLE TEXT")`,`Semi-active`]);
+  newEntry([`viewy`                 , [`Viewy`,`Any/All`],`viewy.jpg`,[[`@THE_VIEWER_9`,`https://x.com/THE_VIEWER_9`]],`Anonymous`,`("Hey guys, Viewy here, I'm your run-of-the-mill Program in charge of safekeeping my assigned workplace from any bad actors and I am TOTALLY the best at it trust, Got infected by Viewer tho,, sad,,,,")`,`("Sample Test")`,`Semi-active`])
   switch (page) {
     case "database":
       table();
@@ -712,7 +714,7 @@ function placeholder_by_category() {
 
 function fun() {
   let output = document.querySelector("#output");
-  let category = document.querySelector("#randomizer_category").value;
+  //let category = document.querySelector("#randomizer_category").value;
 
   var selection = [];
   var random
