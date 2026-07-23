@@ -413,7 +413,7 @@ function initialize(page) { // we're calling this function the moment the html b
   newEntry(['willow'                , ['Willow','He/him'],'willow.jpg',[['@NekoShelly','https://x.com/NekoShelly'],['Strawpage','https://nekoshelly.straw.page/']],'Shelly','Willow: "Hello. My name is Willow and I am a sentient computer, obviously..."','Willow: "I have my name before the quotation marks, I often use ellipsis and I usually speak in a fancy way..."','Active']);
   newEntry(['renamed'               , ['RENAMED','He/him'],'renamed.jpg',[['@UNTITLED366039','https://x.com/UNTITLED366039'],['[STRAWPAGE]','https://filenotfoun.straw.page']],'[Alexander.]','🔳: H E LL O. MY N AM E IS [RENAMED]','🔳>> T HE [QUICK] B RO WN  F OX [JUMPS] O VE R  T HE [LAZY] D OG','Active']);
   newEntry([`viewer`                , [`VIEWER`,`Any/All`],`viewer.jpg`,[[`@THE_VIEWER_9`,`https://x.com/THE_VIEWER_9`]],`(anonymous)`,`print("HELLO, WORLD! I AM VIEWER, AND MY GOAL IS TO SPREAD AND MULTIPLY, LIKE ANY GOOD VIRUS. I HAVE INFECTED 6 OR SO COMPUTERS, ITS HARD FOR ME TO REMEMBER! I HAVE BURROWED INTO VIEWY, AND I AM USING HIM AS A HOST BECAUSE I AM POWERLESS WITHOUT ONE.")`,`print("SAMPLE TEXT")`,`Semi-active`]);
-  newEntry([`viewy`                 , [`Viewy`,`Any/All`],`viewy.jpg`,[[`@THE_VIEWER_9`,`https://x.com/THE_VIEWER_9`]],`Anonymous`,`("Hey guys, Viewy here, I'm your run-of-the-mill Program in charge of safekeeping my assigned workplace from any bad actors and I am TOTALLY the best at it trust, Got infected by Viewer tho,, sad,,,,")`,`("Sample Test")`,`Semi-active`])
+  newEntry([`viewy`                 , [`Viewy`,`Any/All`],`viewy.jpg`,[[`@THE_VIEWER_9`,`https://x.com/THE_VIEWER_9`]],`(anonymous)`,`("Hey guys, Viewy here, I'm your run-of-the-mill Program in charge of safekeeping my assigned workplace from any bad actors and I am TOTALLY the best at it trust, Got infected by Viewer tho,, sad,,,,")`,`("Sample Test")`,`Semi-active`])
   switch (page) {
     case "database":
       table();
@@ -714,22 +714,20 @@ function placeholder_by_category() {
 
 function fun() {
   let output = document.querySelector("#output");
+  let img = document.querySelector("#output_img")
   //let category = document.querySelector("#randomizer_category").value;
 
   var selection = [];
-  var random
+  var picked;
   for (entry in registry) {
     selection.push(registry[entry]["id"]);
   }
-  console.log(selection[22])
-  random = randarr(selection)
-  var offset = 1;
-  if (random + offset > selection.length) {
-    offset = -1;
+  var random_id = selection[randarr(selection)]
+  picked = registry[random_id]
+  switch (output.value) {
+    case undefined:
+      return false;
   }
-  if (output.value = selection[random]) {
-    output.value = selection[random + offset];
-  } else {
-    output.value = selection[random];
-  }
+  output.value = picked["name"][0];
+  img.src = picked["image"]
 }
