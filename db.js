@@ -731,3 +731,8 @@ function fun() {
   output.value = picked["name"][0];
   img.src = picked["image"]
 }
+function roll(amount) {
+  for (i = 1; i <= amount; i++) {
+    //
+  }
+}

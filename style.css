@@ -26,6 +26,7 @@
   --border              : 1px solid #000;
   --border_db           : 1px solid #000;
   --form_padding        : 40px;
+  --slot_height         : 200px;
 }
 * {
   font-family: "VCR OSD Mono","Segoe UI",system-ui;
@@ -348,7 +349,45 @@ td > div {
 #db td:first-child, #db thead:first-child {
   border-left: var(--border_db);
 }
-
+.slots {
+  display: flex;
+  flex-direction: row;
+  height: var(--slot_height);
+}
+.slots > div {
+  display: flex;
+  flex-direction: column;
+  width: calc(var(--slot_height) * 0.7);
+}
+.slots > div > label {
+  height: calc(var(--slot_height) * 0.15);
+}
+.slots > div > img {
+  height: calc(var(--slot_height) * 0.7);
+  width: calc(var(--slot_height) * 0.7);
+  margin: 0;
+  display: block;
+  aspect-ratio: 1/1;
+}
+.slots > div > a {
+  height: calc(var(--slot_height) * 0.15);
+  background-color: var(--blue);
+  color:black;
+  border-radius: 5px;
+  border: 1px solid;
+  padding: 5%;
+  text-decoration: none;
+  text-align: center;
+  font-size: var(--font-size-link);
+  overflow: hidden;
+  white-space: nowrap;
+}
+.slots > div > a:hover {
+  color:white;
+  background-color: var(--dark);
+  border: 1px solid white;
+  transition:0.2s;
+}
 #dbHEADER > td {
   font-size: var(--font-size_td) + 2px;
   font-weight       : bold;
@@ -411,7 +450,7 @@ td.account {
   width       : var(--one-cell);
   box-sizing: border-box;
 }
-.links > a{
+.links > a {
   background-color: var(--blue);
   color:black;
   border-radius: 5px;
