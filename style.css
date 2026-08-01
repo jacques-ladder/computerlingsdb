@@ -39,6 +39,7 @@ body {
   font-size: var(--font-size-all)
 }
 
+/* Common h1, h2, h3, p and .returnbtn (button) tag styles */
 h1, h2, h3, p, .returnbtn{
   margin: 10px;
 }
